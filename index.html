@@ -281,7 +281,54 @@
     .modal-box{max-height:94vh;border-radius:16px 16px 0 0}
     .modal-head,.modal-body,.modal-foot{padding-left:18px;padding-right:18px}
   }
-  #docs .docs-tools{background:var(--white)}
+
+  /* 信保基金專案總覽 */
+  .smeg-basics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+  .fact-tile{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .fact-tile b{display:block;font-family:var(--serif);font-size:17px;color:var(--green-900);line-height:1.45}
+  .fact-tile span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
+  .smeg-bar{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chipbtn{font:inherit;font-size:14px;cursor:pointer;border:1.5px solid var(--line);background:var(--white);border-radius:99px;padding:6px 16px;color:var(--muted)}
+  .chipbtn:hover{border-color:var(--green-700)}
+  .chipbtn[aria-pressed=true]{background:var(--green-700);border-color:var(--green-700);color:#fff;font-weight:700}
+  .smeg-bar input[type=search]{font:inherit;width:260px;max-width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+  .smeg-bar input[type=search]:focus{border-color:var(--green-700);outline:none;box-shadow:0 0 0 3px var(--green-100)}
+  .smeg-count{font-size:14px;color:var(--muted);margin-bottom:14px}
+  .prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  details.prog{margin-bottom:0}
+  details.prog[hidden]{display:none}
+  details.prog summary{padding:16px 20px;align-items:flex-start}
+  .p-name{display:block;font-size:16px;line-height:1.5}
+  .p-one{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;background:var(--green-100);color:var(--green-900)}
+  .tag.check{background:var(--soil-100);color:#6F4A0E}
+  .tag.warn{background:#F9E3DD;color:#7A2A18}
+  .tag.src{background:var(--bg);color:var(--muted);border:1px solid var(--line);font-weight:400}
+  .p-body{padding:0 20px 20px}
+  .p-body dl{display:grid;grid-template-columns:104px 1fr;gap:10px 14px;font-size:14px;border-top:1px solid var(--line);padding-top:14px}
+  .p-body dt{font-weight:700;color:var(--green-900)}
+  .p-body dd{color:var(--ink)}
+  .smeg-empty{display:none;border:2px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--muted);background:var(--white)}
+  .name-lists{margin-top:26px}
+  .name-lists > h3{font-family:var(--serif);font-size:20px;color:var(--green-900);margin-bottom:4px}
+  .name-lists > p{font-size:14px;color:var(--muted);margin-bottom:14px}
+  .chip-list{display:flex;flex-wrap:wrap;gap:8px;padding:0 22px 20px}
+  .chip-list .nm{font-size:14px;padding:5px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
+  .chip-list .nm[hidden]{display:none}
+  details.names[hidden]{display:none}
+  .smeg-note{margin-top:24px;font-size:14px;color:var(--muted)}
+  .smeg-note a{color:var(--green-700);font-weight:700}
+  @media (max-width:900px){
+    .smeg-basics{grid-template-columns:1fr 1fr}
+    .prog-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .smeg-basics{grid-template-columns:1fr}
+    .p-body dl{grid-template-columns:1fr;gap:2px}
+    .p-body dd{margin-bottom:8px}
+  }
   @media (max-width:900px){
     nav.main{display:none}
     .hero .wrap,.split,.contact .wrap,.panel.active{grid-template-columns:1fr}
@@ -318,6 +365,7 @@
     <nav class="main" aria-label="主選單">
       <a href="#products">專案貸款</a>
       <a href="#guarantee">信用保證</a>
+      <a href="#smeg">信保專案</a>
       <a href="#checkup">財務健檢</a>
       <a href="#process">申請流程</a>
       <a href="#docs">文件清單</a>
@@ -493,13 +541,47 @@
         <h2>怎麼知道自己適不適用？</h2>
         <p>是否適用信用保證及保證成數，依專案規定與信保基金審核而定。先備好基本文件，專員能更快協助判斷。</p>
       </div>
-      <a class="btn btn-primary" href="#docs">查看文件準備清單</a>
+      <a class="btn btn-primary" href="#smeg">查看信保基金所有專案</a> <a class="btn btn-ghost" href="#docs" style="margin-left:8px">文件準備清單</a>
     </div>
   </div>
 </section>
 
+<!-- 信保基金專案總覽 -->
+<section class="block" id="smeg">
+  <div class="wrap">
+    <div class="sec-head" style="max-width:760px">
+      <h2>信保基金保證專案總覽</h2>
+      <p>中小企業信用保證基金（簡稱信保基金）提供的保證項目與專案，依用途分類整理。點開每個專案，看適用對象、額度、成數與重點說明。</p>
+    </div>
+
+    <div class="smeg-basics">
+      <div class="fact-tile"><b>誰可以申請</b><span>實收資本額 1 億元以下，或經常僱用員工未滿 200 人的中小企業，不含金融保險業、特殊娛樂業。</span></div>
+      <div class="fact-tile"><b>怎麼送保</b><span>多數由銀行代為送保（間接保證）；部分項目可直接向信保基金申請。</span></div>
+      <div class="fact-tile"><b>常見保證成數</b><span>多為 8 成至 9 成；部分專案可達 9.5 成或 10 成。</span></div>
+      <div class="fact-tile"><b>保證手續費</b><span>經銀行送保的一般項目，年費率約 0.375%～1.375%，依風險核定；專案另有優惠。</span></div>
+    </div>
+
+    <div class="smeg-bar">
+      <div class="chips" id="smegChips" role="group" aria-label="專案分類"></div>
+      <input type="search" id="smegSearch" placeholder="搜尋專案，例如：外銷、創業、災害" aria-label="搜尋專案">
+    </div>
+    <p class="smeg-count" id="smegCount" aria-live="polite"></p>
+
+    <div class="prog-grid" id="smegGrid"></div>
+    <div class="smeg-empty" id="smegEmpty">沒有符合的專案，請換個關鍵字或分類。</div>
+
+    <div class="name-lists" id="smegNames">
+      <h3>其他專案名單</h3>
+      <p>以下是信保基金官網列出的專案名稱。細節條件請至官網查詢，或洽承貸銀行。</p>
+      <div id="smegNameBox"></div>
+    </div>
+
+    <p class="smeg-note">資料彙整日期：2026 年 10 月 23 日，來源為信保基金官網、各銀行與政府公開資料及媒體報導。專案條件與受理期限常調整，標示「請確認」的項目務必以 <a href="https://www.smeg.org.tw" target="_blank" rel="noopener">信保基金官網</a> 與承貸銀行公告為準。本頁不代表土地銀行承辦全部專案，實際承作範圍請洽分行。</p>
+  </div>
+</section>
+
 <!-- 財務健檢 -->
-<section class="block" id="checkup">
+<section class="block white" id="checkup">
   <div class="wrap">
     <div class="sec-head">
       <h2>公司財務健檢</h2>
@@ -522,7 +604,7 @@
 </section>
 
 <!-- 申請流程 -->
-<section class="block white" id="process">
+<section class="block" id="process">
   <div class="wrap">
     <div class="sec-head">
       <h2>四個步驟，從洽詢到撥款</h2>
@@ -538,7 +620,7 @@
 </section>
 
 <!-- 文件準備清單 -->
-<section class="block" id="docs">
+<section class="block white" id="docs">
   <div class="wrap">
     <div class="sec-head">
       <h2>申請文件準備清單</h2>
@@ -610,7 +692,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="block white" id="faq">
+<section class="block" id="faq">
   <div class="wrap">
     <div class="sec-head">
       <h2>常見問題</h2>
@@ -826,6 +908,90 @@
 
     load();
     filter();
+  })();
+
+  // 信保基金專案總覽
+  (function(){
+    var DATA = [{"n": "一般貸款信用保證", "c": "basic", "one": "最常用的基本保證，補足擔保品不足", "st": "on", "src": "信保基金官網", "rows": [["適用對象", "符合信保基金保證對象的中小企業。"], ["保證額度", "依信保基金作業手冊的「企業保證融資總額度上限」；原則上同一企業最高 1.5 億元（相同負責人或互為配偶之關係企業合併計算）。"], ["保證成數", "最高 9 成。"], ["保證手續費", "間接保證（經銀行送保）年費率 0.375%～1.375%；直接保證 0.375% 以上。"], ["其他", "貸款利率依金融機構規定。"]]}, {"n": "商業本票保證信用保證", "c": "basic", "one": "配合金融機構的商業本票保證業務", "st": "on", "src": "信保基金官網（項目名稱）", "rows": [["說明", "列於信保基金「保證項目」，配合金融機構的商業本票保證業務。額度、成數與手續費請見官網要點。"]]}, {"n": "外銷貸款信用保證", "c": "basic", "one": "補足出口前後的資金缺口", "st": "on", "src": "銀行說明", "rows": [["資金用途", "解決出口前與出口後可能出現的資金缺口。"], ["保證成數", "最高 9 成。"], ["其他", "外銷企業另可留意「外銷貸款優惠保證加碼」，見「外銷與匯率」分類。"]]}, {"n": "購料週轉融資信用保證", "c": "basic", "one": "採購原物料所需的週轉資金", "st": "on", "src": "信保基金官網", "rows": [["資金用途", "購料週轉所需資金。"], ["保證手續費", "依個案風險核定，年費率 0.375%～1.375%。"]]}, {"n": "履約保證信用保證", "c": "basic", "one": "承接合約時，由銀行出具保證的信用保證", "st": "chk", "src": "作業手冊（版本較舊）", "rows": [["說明", "例如預付款保證：企業收到買方預先支付的部分合約（工程或買賣）價款，依買方要求由金融機構出具保證，信保基金再就該保證提供信用保證。"], ["其他", "此項依作業手冊整理，版本較舊，最新規定請見官網。"]]}, {"n": "進口稅捐記帳保證", "c": "basic", "one": "銀行列為信保基金保證項目之一", "st": "on", "src": "銀行說明", "rows": [["說明", "銀行說明列為信保基金保證項目。額度與條件請洽承貸銀行或查官網。"]]}, {"n": "批次信用保證", "c": "basic", "one": "銀行以批次方式送保的保證措施", "st": "chk", "src": "信保基金官網、簡報", "rows": [["保證額度", "一般批次信用保證：同一企業 2 億元。"], ["保證成數", "最高 10 成（113 年批號）。"], ["保證手續費", "年費率 0.25%（113 年批號）。"], ["其他", "批次保證條件逐年調整，請以信保基金最新通函為準。"]]}, {"n": "直接信用保證", "c": "basic", "one": "企業可直接向信保基金申請保證", "st": "on", "src": "信保基金官網、銀行說明", "rows": [["說明", "官網設有「直接保證-小額案件」「新創企業及直接保證」「小額直保」專區；部分產業可自行向信保基金取得直接保證。"], ["保證手續費", "直接保證 0.375% 以上；促進企業創新直接保證方案為 0.375%。"]]}, {"n": "中小微企業多元發展專案貸款", "c": "special", "one": "數位轉型、淨零轉型、通路發展與關稅衝擊的主力專案", "st": "chk", "src": "信保基金官網、政府公告、媒體", "rows": [["資金用途", "協助中小微企業進行數位轉型、淨零轉型、通路發展、優化經營效能；並協助受美國加徵關稅影響的中小微企業穩定營運、加速轉型。"], ["貸款額度", "每家事業最高 3,500 萬元；購置機器設備以不超過計畫經費 8 成為原則。"], ["貸款期限", "週轉性支出最長 6 年；購置機器、設備最長 7 年。"], ["保證成數", "100 萬元以內一律 10 成；逾 100 萬元最低 9 成。"], ["利率與手續費", "利率最高為中華郵政二年期定期儲金機動利率加 0.5%；保證手續費年費率 0.1%（依政府公告之專案貸款要點）。"], ["擴大適用", "2025 年 8 月起，因美國關稅影響且營收減少達 10% 的企業，不再受員工 30 人以下限制（媒體報導）。"], ["動撥期限", "貸款額度須於 117 年 12 月 31 日前動撥完畢（依要點）。"], ["土地銀行", "土地銀行已推出同名專案貸款（2026 年 3 月媒體報導）。"]]}, {"n": "中小微企業多元發展批次信用保證措施", "c": "special", "one": "多元發展專案的批次送保版本", "st": "chk", "src": "信保基金官網", "rows": [["保證額度", "與專案貸款合併計算：單一企業 3,500 萬元、同一企業 1 億元。"], ["其他", "以批次方式送保，細節請見官網。"]]}, {"n": "中小企業千億保專案", "c": "special", "one": "協助新創、微型等中小企業取得融資", "st": "chk", "src": "信保基金簡報、媒體", "rows": [["適用對象", "符合保證對象之中小企業，實收資本額 3,000 萬元以下者。"], ["小額貸款擴大保證", "單一企業最高 600 萬元（113 年）；保證成數最高 9.5 成，最低以 8 成為原則。"], ["批次擴大保證", "同一金融機構對單一企業最高 600 萬元；先行交付備償款項計提率提高為 3.5%；手續費年費率一律調降 0.1 個百分點。"], ["辦理期間", "此專案常延長。2026 年民間整理稱延長至 2026 年 12 月 31 日，請以官網為準。"]]}, {"n": "國家發展優惠保證措施", "c": "special", "one": "優良事蹟企業可享優惠成數與外加額度", "st": "chk", "src": "信保基金簡報（2024）", "rows": [["說明", "為協助中小企業取得營運所需資金，提供優惠保證成數及外加保證額度。"], ["保證額度", "外加同一企業 1 億元。"], ["保證成數", "最高 9.5 成。"], ["適用對象", "包含營運具優良事蹟、經金融機構或信保基金核認屬實的企業等，詳細條件請見官網。"]]}, {"n": "中小企業加速投資貸款信用保證", "c": "special", "one": "新（擴）建廠房、增添機器設備的資本性支出", "st": "chk", "src": "信保基金簡報（2022）", "rows": [["適用對象", "使用統一發票且符合保證對象之中小企業。"], ["資金用途", "新（擴）建廠房、增添機器或設備等資本性支出（含得資本化之修繕費用）。"], ["融資額度", "以投資所需總金額 80% 為限，單一企業最高 1 億元，不受企業保證融資總額度上限限制。"], ["保證成數", "最高 9.5 成；在工業區、產業園區、科學園區新（擴）建廠房者最低 8 成。"], ["其他", "資料來自 2022 年簡報，辦理期限請查官網。"]]}, {"n": "鼓勵中小企業為員工加薪之額外額度保證措施", "c": "special", "one": "為員工加薪的企業，可享外加保證額度", "st": "chk", "src": "信保基金官網", "rows": [["保證額度", "同一企業外加 3,500 萬元。"], ["其他", "適用條件請見官網或洽承貸銀行。"]]}, {"n": "協助中小型事業疫後振興專案貸款", "c": "special", "one": "官網「其他專案貸款」列名，條件依要點", "st": "chk", "src": "信保基金業務規章（112 年版）", "rows": [["資金用途", "週轉性或資本性支出；可用於償還防疫千億保及央行專案融通送保案件的借新還舊。"], ["貸款額度", "依對象分兩類，擇一申請：每一申貸事業最高 3,500 萬元，或最高 400 萬元。"], ["保證成數", "最低 8 成；100 萬元額度內一律 10 成。"], ["利率", "最高依郵政儲金二年期定期儲金機動利率加 0.5%。"], ["其他", "資料來自 112 年版規章，是否仍受理請查官網。"]]}, {"n": "青創新創暨微型事業相挺獎、信保金質獎、批保卓越獎措施", "c": "special", "one": "官網列出的三項外加額度措施", "st": "chk", "src": "信保基金官網（熱門問答）", "rows": [["青創、新創暨微型事業相挺獎", "同一金融機構對同一企業 1,000 萬元。"], ["信保金質獎", "同一金融機構對同一企業 5,000 萬元／3,000 萬元。"], ["批保卓越獎", "同一金融機構對同一企業 5,000 萬元。"], ["其他", "適用條件請見官網。"]]}, {"n": "外銷貸款優惠保證加碼信用保證", "c": "export", "one": "外銷企業的高額度、低手續費保證", "st": "chk", "src": "信保基金官網最新消息", "rows": [["中小企業", "每一企業最高 6,000 萬元，同一企業最高 1.5 億元。"], ["非中小企業", "每一企業最高 1 億元，同一企業最高 5 億元。"], ["保證手續費", "提供高保證成數、低手續費率；中小企業前 2 年手續費得全額免收。"], ["其他", "完整送保規定以信保基金通函為準。"]]}, {"n": "外銷貸款優惠信用保證方案（貿易署與信保基金合辦）", "c": "export", "one": "拓展出口的手續費優惠與外加額度", "st": "chk", "src": "政府公告（較舊）", "rows": [["優惠內容", "保證手續費最高全額減免；額外增加單一廠商保證額度：新南向國家 1 億元，其他國家 6,000 萬元。"], ["適用對象", "保證對象之中小企業且票、債信正常；依法登記的出進口廠商（無欠繳推廣貿易服務費，前一年未受暫停出進口處分）。"], ["其他", "此頁資料較舊，現行方案請以信保基金與貿易署公告為準。"]]}, {"n": "協助企業取得避險額度信用保證措施", "c": "export", "one": "鎖定出口利潤的匯率避險保證", "st": "exp", "src": "銀行公告、媒體", "rows": [["資金用途", "外銷貸款的避險需求（鎖定出口利潤）。"], ["保證額度", "同一企業避險（名目本金）額度最高 6,000 萬元，不受企業保證融資總額度上限限制。"], ["保證成數", "10 成；免收保證手續費。"], ["適用對象", "依出進口廠商登記辦法登記，且已申請外銷貸款保證的中小企業。"], ["受理期限", "銀行公告受理至 2025 年 12 月 31 日，是否延長請查官網。"]]}, {"n": "協助中小企業赴新南向國家、有邦交國家投資融資信用保證", "c": "export", "one": "海外投資所需資金的保證", "st": "chk", "src": "信保基金業務規章", "rows": [["說明", "協助中小企業赴新南向國家或有邦交國家投資所需的融資。"], ["保證手續費", "赴新南向國家為固定費率 0.1%；赴有邦交國家則依保證成數擇定費率。"], ["其他", "細節與受理期限請見官網。"]]}, {"n": "青年創業及啟動金貸款（青年創業貸款信用保證）", "c": "startup", "one": "青年創業的政策貸款，擔保品不足可搭配信保", "st": "chk", "src": "民間整理（2026）、官網專區", "rows": [["資金用途與額度", "準備金及開辦費用最高 200 萬元（設立 8 個月內）；週轉性支出最高 600 萬元；資本性支出最高 1,200 萬元。"], ["貸款期限", "準備金、週轉性支出最長 6 年；機器設備最長 7 年；廠房最長 20 年。"], ["利率", "最高按中華郵政二年期定期儲金機動利率加 0.575%。"], ["保證", "擔保品不足時可申請信保基金保證；貸款 100 萬元以下無需保證人。"], ["其他", "設立年限、負責人年齡與創業課程等資格，請以經濟部公告為準。以上為民間整理，數字可能調整。"]]}, {"n": "微型創業鳳凰貸款", "c": "startup", "one": "女性、中高齡與離島居民創業的免擔保貸款", "st": "chk", "src": "勞動部、民間整理", "rows": [["適用對象", "女性、中高齡國民及設籍離島居民（勞動部）。"], ["資金用途", "購置或租用廠房、營業場所、機器、設備，或營運週轉金。"], ["貸款額度", "最高 200 萬元；免辦商業登記的小規模商業最高 50 萬元。"], ["保證", "免保證人與擔保品，政府提供 9.5 成信用保證；借款人負擔 0.375% 年費率保證手續費（民間整理）。"], ["利率與期限", "郵政儲金二年期定期儲金機動利率加 0.575%，最長 7 年；前 2 年利息由勞動部補貼（民間整理）。"]]}, {"n": "企業小頭家貸款信用保證", "c": "startup", "one": "員工 10 人以下小事業的週轉與設備貸款", "st": "chk", "src": "信保基金要點", "rows": [["適用對象", "依法辦理公司、有限合夥、商業或稅籍登記，僱用員工人數十人以下的營利事業。"], ["貸款額度", "週轉性支出每一事業最高 500 萬元（受災事業不受限）；資本性支出以不超過計畫經費 8 成為原則。"], ["保證成數", "最高 9 成；其他授信額度在 500 萬元以下者，原則不低於 8 成。設立未滿 5 年的新創事業、提具傳承創新計畫書並經銀行認可的事業、受災復舊貸款，一律 9 成。"], ["手續費與利率", "受災復舊貸款免收保證手續費；利率最高依郵局二年期定期儲金機動利率加 1.5%（一律九成保證者）。"], ["其他", "要點為較早核定的版本，請確認最新修訂。"]]}, {"n": "中小企業災害復舊專案貸款信用保證", "c": "disaster", "one": "受災企業復工的資金協助，送保免手續費", "st": "chk", "src": "信保基金規定、銀行說明", "rows": [["資金用途", "災後修建廠房、購置機器設備與原物料，或營運週轉。"], ["保證成數", "最高 9 成。"], ["保證手續費", "受災復舊貸款免收。"], ["申請提醒", "需先向縣市政府、公所、稅捐機關等單位申請受災證明；受災日次日起 1 年內可申請（銀行說明）。"]]}, {"n": "低碳化智慧化轉型發展與納管工廠及特定工廠基礎設施優化專案貸款", "c": "disaster", "one": "中小企業低碳、智慧轉型與工廠基礎設施優化", "st": "exp", "src": "信保基金官網（熱門問答）", "rows": [["保證額度", "外加同一企業 1 億元。"], ["辦理期限", "官網載明截止日為 2025 年 12 月 31 日，是否延長請查官網。"]]}];
+    var NAMES = [{"t": "相對保證專案貸款（官網列出，至少 20 項）", "items": ["微型創業鳳凰貸款", "就業保險失業者創業貸款", "失業中高齡者及高齡者創業貸款", "中小型運動產業貸款", "離島永續發展優惠貸款", "受災旅宿業融資", "原住民族企業貸款", "加強文化創意產業升級轉型貸款", "應回收廢棄物回收處理業專案貸款", "土壤及地下水污染改善貸款", "節能服務業專案貸款", "事業廢水處理綠色轉型專案貸款", "基隆市中小企業圓夢貸款", "臺北市中小企業融資貸款", "臺北市青年創業融資貸款", "新北市中小企業融資貸款", "新北市創新創業融資貸款", "新北市原住民創業及所營事業融資貸款", "桃園市青年創業及中小企業融資貸款", "新竹市中小企業及個人便利貸款"]}, {"t": "特別保證措施（官網首頁列名）", "items": ["鼓勵中小企業為員工加薪之額外額度保證措施", "中小微多元發展批次信用保證措施", "信合社小微企業保證專案", "新創企業暨無形資產融資信用保證措施", "中小企業安興專案", "中小企業千億保專案", "國家發展優惠措施", "外銷優惠方案", "投資台灣措施", "金質獎措施"]}, {"t": "政策性貸款信用保證（官網列名，多為較早期專案）", "items": ["促進東部地區發展優惠貸款", "促進民間參與公共建設優惠貸款", "機器設備輸出（第六期）貸款", "機器設備輸出（第七期）貸款", "機器設備升級（第四期）貸款", "歡迎臺商回臺投資專案貸款", "中小企業創新發展專案貸款", "推動航空工業發展優惠貸款", "台商回台投資專案融資貸款", "獎勵觀光產業升級優惠貸款"]}, {"t": "其他專案貸款（官網列名）", "items": ["協助特定工廠合法化融資貸款信用保證", "知識經濟企業融資信用保證", "青年海外生活體驗貸款", "補助留學生就學貸款", "高級中學以上學校學生就學貸款", "臺北市青年留學生就學貸款"]}];
+    var CATS = [['all','全部'],['basic','企業一般保證'],['special','專案貸款與特別措施'],['export','外銷與匯率'],['startup','創業與小微'],['disaster','災害與轉型'],['names','其他專案名單']];
+    var ST = {on:['tag','常設項目'], chk:['tag check','專案：請確認受理期限'], exp:['tag warn','原定期限已過：請確認是否延長']};
+    var cat = 'all';
+    var chipsEl = document.getElementById('smegChips');
+    var grid = document.getElementById('smegGrid');
+    var search = document.getElementById('smegSearch');
+    var countEl = document.getElementById('smegCount');
+    var emptyEl = document.getElementById('smegEmpty');
+    var namesWrap = document.getElementById('smegNames');
+    var nameBox = document.getElementById('smegNameBox');
+
+    var ch = '';
+    CATS.forEach(function(c){ ch += '<button type="button" class="chipbtn" data-cat="' + c[0] + '" aria-pressed="' + (c[0] === 'all') + '">' + c[1] + '</button>'; });
+    chipsEl.innerHTML = ch;
+
+    var gh = '';
+    DATA.forEach(function(d){
+      var st = ST[d.st];
+      gh += '<details class="prog" data-cat="' + d.c + '"><summary><span><span class="p-name">' + d.n + '</span><span class="p-one">' + d.one + '</span>'
+        + '<span class="tags"><span class="' + st[0] + '">' + st[1] + '</span><span class="tag src">資料：' + d.src + '</span></span></span></summary>'
+        + '<div class="p-body"><dl>';
+      d.rows.forEach(function(r){ gh += '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>'; });
+      gh += '</dl></div></details>';
+    });
+    grid.innerHTML = gh;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('details.prog'));
+
+    var nh = '';
+    NAMES.forEach(function(g){
+      nh += '<details class="names"><summary>' + g.t + '（' + g.items.length + ' 項）</summary><div class="chip-list">';
+      g.items.forEach(function(i){ nh += '<span class="nm">' + i + '</span>'; });
+      nh += '</div></details>';
+    });
+    nameBox.innerHTML = nh;
+    var lists = Array.prototype.slice.call(nameBox.querySelectorAll('details.names'));
+
+    function apply(){
+      var q = search.value.trim().toLowerCase();
+      var shown = 0;
+      cards.forEach(function(el){
+        var okCat = cat === 'all' || cat === el.getAttribute('data-cat');
+        var okQ = !q || el.textContent.toLowerCase().indexOf(q) > -1;
+        var show = cat !== 'names' && okCat && okQ;
+        el.hidden = !show;
+        if (show) shown++;
+      });
+      var showNames = cat === 'all' || cat === 'names';
+      namesWrap.style.display = showNames ? '' : 'none';
+      var nameHits = 0;
+      lists.forEach(function(det){
+        var any = 0;
+        Array.prototype.forEach.call(det.querySelectorAll('.nm'), function(n){
+          var hit = !q || n.textContent.toLowerCase().indexOf(q) > -1;
+          n.hidden = !hit;
+          if (hit) any++;
+        });
+        det.hidden = any === 0;
+        if (q && any) det.open = true;
+        if (!q) det.open = false;
+        nameHits += any;
+      });
+      var total = shown + (showNames ? nameHits : 0);
+      countEl.textContent = cat === 'names' ? '共 ' + nameHits + ' 個專案名稱'
+        : '顯示 ' + shown + ' 個專案說明' + (showNames ? '，另有 ' + nameHits + ' 個專案名稱列在下方' : '');
+      emptyEl.style.display = total === 0 ? 'block' : 'none';
+    }
+
+    chipsEl.addEventListener('click', function(e){
+      var b = e.target.closest('.chipbtn');
+      if (!b) return;
+      cat = b.getAttribute('data-cat');
+      Array.prototype.forEach.call(chipsEl.querySelectorAll('.chipbtn'), function(x){
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      apply();
+    });
+    search.addEventListener('input', apply);
+    apply();
   })();
 
   // 財務健檢：步驟卡片 + 彈出視窗 + 即時計算
