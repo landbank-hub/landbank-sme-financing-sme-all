@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>土地銀行｜中小企業融資專區（示範網站）</title>
+<meta name="description" content="土地銀行中小企業融資專區示範頁：資金用途試算、專案貸款介紹、申請流程與常見問題。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-900:#0B3B2C;
+    --green-700:#0F5A42;
+    --green-100:#E3EEE8;
+    --soil:#A9741F;
+    --soil-100:#F4E9D3;
+    --ink:#17251F;
+    --muted:#52625A;
+    --line:#D3DDD7;
+    --bg:#F4F7F5;
+    --white:#FFFFFF;
+    --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+    --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.75;font-size:16px}
+  a{color:inherit}
+  img,svg{max-width:100%}
+  :focus-visible{outline:3px solid var(--soil);outline-offset:3px;border-radius:4px}
+  .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+
+  /* 頂部導覽 */
+  header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}
+  .brand-mark{width:34px;height:34px;border-radius:8px;background:var(--green-700);display:grid;place-items:center}
+  .brand small{display:block;font-weight:400;font-size:12px;color:var(--muted);line-height:1.2}
+  .brand span{font-family:var(--serif);font-size:18px;line-height:1.2}
+  nav.main{display:flex;gap:20px;font-size:15px}
+  nav.main a{text-decoration:none;color:var(--muted);padding:6px 0;border-bottom:2px solid transparent}
+  nav.main a:hover{color:var(--green-700);border-color:var(--green-700)}
+  .btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:700;text-decoration:none;padding:12px 24px;border-radius:6px;transition:background .2s}
+  .btn-primary{background:var(--green-700);color:#fff}
+  .btn-primary:hover{background:var(--green-900)}
+  .btn-soil{background:var(--soil);color:#fff}
+  .btn-soil:hover{background:#8B5E16}
+  .btn-ghost{background:transparent;border:1.5px solid var(--green-700);color:var(--green-700)}
+  .btn-ghost:hover{background:var(--green-100)}
+  .top .btn{padding:9px 18px;font-size:15px}
+
+  /* Hero */
+  .hero{background:var(--green-900);color:#fff;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:8px;background:linear-gradient(90deg,var(--soil) 0 30%,transparent 30%)}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:72px 0 84px}
+  .hero h1{font-family:var(--serif);font-size:clamp(32px,4.6vw,52px);line-height:1.3;font-weight:700;letter-spacing:.02em}
+  .hero p.lead{margin-top:20px;font-size:18px;color:#CFE0D7;max-width:30em}
+  .hero .actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+  .hero .btn-ghost{border-color:#9DBFAF;color:#fff}
+  .hero .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .hero ul.points{margin-top:36px;list-style:none;display:grid;gap:10px;color:#CFE0D7;font-size:15px}
+  .hero ul.points li{display:flex;gap:10px;align-items:flex-start}
+  .hero ul.points svg{flex:none;margin-top:6px}
+
+  /* 資金媒合卡 */
+  .matcher{background:var(--white);color:var(--ink);border-radius:12px;padding:28px;box-shadow:0 18px 40px rgba(0,0,0,.28)}
+  .matcher h2{font-family:var(--serif);font-size:22px;line-height:1.4}
+  .matcher .sub{font-size:14px;color:var(--muted);margin-top:4px}
+  .field{margin-top:18px}
+  .field label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+  select,input[type=text],input[type=tel],input[type=email],textarea{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+  select:focus,input:focus,textarea:focus{border-color:var(--green-700);outline:none;box-shadow:0 0 0 3px var(--green-100)}
+  input[type=range]{width:100%;accent-color:var(--green-700)}
+  .amount{display:flex;justify-content:space-between;align-items:baseline}
+  .amount output{font-family:var(--serif);font-size:24px;color:var(--green-700);font-weight:700}
+  .result{margin-top:20px;padding:16px;border-radius:8px;background:var(--green-100);border-left:5px solid var(--green-700)}
+  .result b{display:block;font-size:17px;color:var(--green-900)}
+  .result p{font-size:14px;color:var(--muted);margin-top:4px}
+  .result a{display:inline-block;margin-top:10px;font-weight:700;color:var(--green-700)}
+
+  /* 信任帶 */
+  .trust{background:var(--soil-100);border-bottom:1px solid #E4D3AE}
+  .trust .wrap{display:flex;gap:20px 40px;flex-wrap:wrap;align-items:center;padding:18px 0;font-size:15px}
+  .trust strong{font-family:var(--serif);color:#6F4A0E}
+  .trust span{color:#4F3A12}
+
+  section.block{padding:84px 0}
+  section.block.white{background:var(--white)}
+  .sec-head{max-width:640px;margin-bottom:40px}
+  .sec-head h2{font-family:var(--serif);font-size:clamp(26px,3.4vw,36px);line-height:1.4;color:var(--green-900)}
+  .sec-head p{margin-top:10px;color:var(--muted)}
+
+  /* 產品分頁 */
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--line)}
+  .tab{font:inherit;background:none;border:0;cursor:pointer;padding:12px 18px;color:var(--muted);font-weight:500;border-bottom:3px solid transparent;margin-bottom:-2px}
+  .tab[aria-selected=true]{color:var(--green-700);border-color:var(--green-700);font-weight:700}
+  .panel{display:none;grid-template-columns:1.2fr .8fr;gap:40px;padding:36px 0 0}
+  .panel.active{display:grid}
+  .panel h3{font-family:var(--serif);font-size:26px;color:var(--green-900);line-height:1.4}
+  .panel .desc{margin-top:10px;color:var(--muted)}
+  .panel ul{margin-top:18px;list-style:none;display:grid;gap:10px}
+  .panel li{padding-left:26px;position:relative}
+  .panel li::before{content:"";position:absolute;left:4px;top:.62em;width:10px;height:6px;border-left:2.5px solid var(--green-700);border-bottom:2.5px solid var(--green-700);transform:rotate(-45deg)}
+  .panel .btn{margin-top:26px}
+  .facts{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:22px;align-self:start}
+  .facts dl{display:grid;gap:14px}
+  .facts dt{font-size:13px;color:var(--muted)}
+  .facts dd{font-weight:700}
+
+  /* 流程 */
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+  .steps li{counter-increment:s;position:relative;padding:0 22px 0 0}
+  .steps li::before{content:counter(s);width:42px;height:42px;border-radius:50%;background:var(--green-700);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:18px;position:relative;z-index:1}
+  .steps li::after{content:"";position:absolute;top:21px;left:42px;right:0;height:2px;background:var(--line)}
+  .steps li:last-child::after{display:none}
+  .steps h3{margin-top:16px;font-size:18px;font-family:var(--serif);color:var(--green-900)}
+  .steps p{margin-top:6px;font-size:15px;color:var(--muted)}
+
+  /* 信保說明 */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .guarantee-box{background:var(--green-900);color:#fff;border-radius:14px;padding:36px}
+  .guarantee-box h3{font-family:var(--serif);font-size:24px;line-height:1.5}
+  .guarantee-box p{margin-top:12px;color:#CFE0D7}
+  .compare{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:14px}
+  .compare div{padding:14px;border-radius:8px;background:rgba(255,255,255,.08)}
+  .compare b{display:block;margin-bottom:4px;color:#F1D79C}
+  .checklist{list-style:none;display:grid;gap:14px;margin-top:6px}
+  .checklist li{display:flex;gap:12px;padding:16px 18px;background:var(--white);border:1px solid var(--line);border-radius:10px}
+  .checklist svg{flex:none;margin-top:4px}
+
+  /* FAQ */
+  .faq{max-width:820px}
+  details{background:var(--white);border:1px solid var(--line);border-radius:10px;margin-bottom:12px}
+  summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:700;display:flex;justify-content:space-between;gap:16px;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:24px;color:var(--green-700);line-height:1;transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{padding:0 22px 20px;color:var(--muted)}
+
+  /* 預約表單 */
+  .contact{background:var(--green-700);color:#fff}
+  .contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;padding:84px 0;align-items:start}
+  .contact h2{font-family:var(--serif);font-size:clamp(26px,3.4vw,36px);line-height:1.4}
+  .contact p{margin-top:14px;color:#D4E6DC}
+  .contact .note{font-size:14px;color:#BCD6C8;margin-top:22px}
+  form.card{background:#fff;color:var(--ink);border-radius:12px;padding:28px}
+  form.card .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form.card .btn{width:100%;margin-top:22px}
+  .check{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:14px;color:var(--muted)}
+  .check input{margin-top:6px;accent-color:var(--green-700)}
+  .success{display:none;margin-top:16px;padding:14px;border-radius:8px;background:var(--green-100);color:var(--green-900);font-weight:700}
+
+  footer{background:#0A2A20;color:#A9C2B6;padding:40px 0;font-size:14px}
+  footer .wrap{display:grid;gap:12px}
+  footer a{color:#fff}
+
+
+  /* 文件準備清單 */
+  .docs-tools{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-end;justify-content:space-between;padding:20px 22px;background:var(--bg);border:1px solid var(--line);border-radius:12px;margin-bottom:28px}
+  .docs-tools .field{margin:0;min-width:260px;flex:1 1 260px}
+  .progress{flex:1 1 220px}
+  .progress p{font-weight:700;font-size:15px}
+  .progress p span{color:var(--green-700);font-family:var(--serif);font-size:22px}
+  .bar{height:8px;border-radius:99px;background:var(--line);margin-top:8px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:var(--green-700);transition:width .25s}
+  .tool-btns{display:flex;gap:10px}
+  .tool-btns .btn{padding:9px 16px;font-size:14px}
+  .docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .doc-group{border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--white)}
+  .doc-group h3{font-family:var(--serif);font-size:20px;color:var(--green-900);line-height:1.4}
+  .doc-group .hint{font-size:14px;color:var(--muted);margin-top:2px}
+  .doc-group.optional{border-style:dashed;background:var(--bg)}
+  .doc{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line);cursor:pointer}
+  .doc:first-of-type{margin-top:14px}
+  .doc[hidden]{display:none}
+  .doc input{flex:none;width:20px;height:20px;margin-top:4px;accent-color:var(--green-700)}
+  .doc b{display:block;font-weight:700}
+  .doc small{display:block;color:var(--muted);font-size:14px;line-height:1.6;margin-top:2px}
+  .doc input:checked + span b{color:var(--muted);text-decoration:line-through}
+  .tips{margin-top:24px;padding:16px 20px;border-left:5px solid var(--soil);background:var(--soil-100);font-size:15px;color:#4F3A12}
+  @media (max-width:900px){.docs-grid{grid-template-columns:1fr}}
+  #docs .docs-tools{background:var(--white)}
+
+  /* 財務健檢：步驟卡片 + 彈出視窗 */
+  .ck-tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .ck-tools p{font-size:15px;color:var(--muted)}
+  .ck-tools .btns{display:flex;gap:10px}
+  .ck-tools .btn{padding:9px 16px;font-size:14px}
+  .step-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .step-card{font:inherit;text-align:left;cursor:pointer;background:var(--white);border:1.5px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+  .step-card:hover{border-color:var(--green-700);box-shadow:0 8px 22px rgba(15,90,66,.12)}
+  .step-card .top-row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .step-card .num{width:38px;height:38px;border-radius:50%;background:var(--green-700);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:18px}
+  .step-card.done .num{background:var(--green-100);color:var(--green-900)}
+  .chip{font-size:13px;font-weight:700;padding:3px 12px;border-radius:99px;background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+  .step-card.done .chip{background:var(--green-100);color:var(--green-900);border-color:var(--green-100)}
+  .step-card.part .chip{background:var(--soil-100);color:#6F4A0E;border-color:var(--soil-100)}
+  .step-card h3{font-family:var(--serif);font-size:22px;color:var(--green-900);line-height:1.4}
+  .step-card .q-line{color:var(--muted);font-size:15px}
+  .pills{display:grid;gap:6px;margin-top:4px}
+  .pill{font-size:14px;padding:6px 10px;border-radius:8px;display:flex;justify-content:space-between;gap:8px}
+  .pill.good{background:var(--green-100);color:var(--green-900)}
+  .pill.watch{background:var(--soil-100);color:#6F4A0E}
+  .pill.warn{background:#F9E3DD;color:#7A2A18}
+  .step-card .go{margin-top:auto;padding-top:6px;font-weight:700;color:var(--green-700);font-size:15px}
+
+  .modal{position:fixed;inset:0;z-index:50;background:rgba(10,30,22,.6);display:flex;align-items:center;justify-content:center;padding:20px}
+  .modal[hidden]{display:none}
+  .modal-box{background:var(--white);border-radius:16px;width:min(780px,100%);max-height:calc(100vh - 40px);display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 24px;border-bottom:1px solid var(--line)}
+  .m-steps{display:flex;gap:8px;flex-wrap:wrap}
+  .m-step{font:inherit;font-size:14px;cursor:pointer;border:1.5px solid var(--line);background:var(--white);color:var(--muted);border-radius:99px;padding:5px 14px}
+  .m-step[aria-current=step]{background:var(--green-700);border-color:var(--green-700);color:#fff;font-weight:700}
+  .m-close{font:inherit;font-size:22px;line-height:1;cursor:pointer;border:0;background:var(--bg);width:38px;height:38px;border-radius:50%;color:var(--ink)}
+  .m-close:hover{background:var(--green-100)}
+  .modal-body{padding:22px 24px;overflow-y:auto;flex:1}
+  .step-intro h3{font-family:var(--serif);font-size:22px;color:var(--green-900);line-height:1.4}
+  .step-intro p{color:var(--muted);margin-top:4px;font-size:15px}
+  .qs{display:grid;gap:14px;margin-top:18px}
+  .q{display:grid;grid-template-columns:1fr 200px;gap:10px 24px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .q h4{font-size:16px;line-height:1.5}
+  .q h4 em{font-style:normal;font-weight:400;font-size:13px;color:var(--muted);margin-left:6px}
+  .q .info{display:grid;gap:8px;margin-top:8px;font-size:14px}
+  .q .info div{padding-left:12px;border-left:3px solid var(--green-700)}
+  .q .info div + div{border-left-color:var(--soil)}
+  .q .info b{display:block;font-size:13px;color:var(--green-900)}
+  .q .info div + div b{color:#6F4A0E}
+  .q .info span{color:var(--muted)}
+  input[type=number]{-moz-appearance:textfield;appearance:textfield}
+  input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+  .unit{position:relative}
+  .unit input{padding-right:54px}
+  .unit i{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-style:normal;font-size:14px;color:var(--muted);pointer-events:none}
+  input[type=number]{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+  input[type=number]:focus{border-color:var(--green-700);outline:none;box-shadow:0 0 0 3px var(--green-100)}
+  .live{margin-top:22px;padding-top:18px;border-top:2px solid var(--line)}
+  .live h4{font-family:var(--serif);font-size:18px;color:var(--green-900)}
+  .live .sub{font-size:13px;color:var(--muted);margin-top:2px}
+  .metrics{list-style:none;display:grid;gap:10px;margin-top:12px}
+  .metric{background:var(--white);border:1px solid var(--line);border-left-width:6px;border-radius:10px;padding:12px 16px}
+  .metric.good{border-left-color:var(--green-700)}
+  .metric.watch{border-left-color:var(--soil)}
+  .metric.warn{border-left-color:#A83A24}
+  .metric.pend{border-style:dashed;border-left-width:1px;background:var(--bg)}
+  .metric.bad{border-left-color:#A83A24;background:#FDF3F0}
+  .metric header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .metric .nm{font-weight:700}
+  .metric .val{font-family:var(--serif);font-size:20px;font-weight:700;margin-left:10px;color:var(--green-900)}
+  .badge{font-size:13px;font-weight:700;padding:3px 12px;border-radius:99px}
+  .good .badge{background:var(--green-100);color:var(--green-900)}
+  .watch .badge{background:var(--soil-100);color:#6F4A0E}
+  .warn .badge{background:#F9E3DD;color:#7A2A18}
+  .metric p{font-size:14px;color:var(--muted);margin-top:4px}
+  .metric p.fm{font-size:13px;margin-top:6px}
+  .modal-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;padding:16px 24px;border-top:1px solid var(--line);background:var(--bg);border-radius:0 0 16px 16px}
+  .modal-foot .btn{padding:10px 20px;font-size:15px}
+  .m-msg{display:none;flex:1 1 100%;padding:10px 12px;border-radius:8px;background:#F9E3DD;color:#7A2A18;font-weight:700;font-size:14px}
+  body.modal-open{overflow:hidden}
+
+  .ck-result{margin-top:32px}
+  .ck-wait{border:2px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--muted);background:var(--white)}
+  .ck-score{background:var(--green-900);color:#fff;border-radius:12px;padding:24px 26px}
+  .ck-score b{display:block;font-family:var(--serif);font-size:24px;line-height:1.4}
+  .ck-score p{margin-top:6px;color:#CFE0D7;font-size:15px}
+  .grp{margin-top:26px}
+  .grp > h3{font-family:var(--serif);font-size:20px;color:var(--green-900)}
+  .ck-next{margin-top:26px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+  .ck-next h3{font-family:var(--serif);font-size:20px;color:var(--green-900)}
+  .ck-next ul{margin:10px 0 0 20px;display:grid;gap:6px;font-size:15px;color:var(--muted)}
+  .ck-next .btn{margin-top:16px}
+  @media (max-width:900px){
+    .step-cards{grid-template-columns:1fr}
+    .q{grid-template-columns:1fr}
+    .modal{padding:0;align-items:flex-end}
+    .modal-box{max-height:94vh;border-radius:16px 16px 0 0}
+    .modal-head,.modal-body,.modal-foot{padding-left:18px;padding-right:18px}
+  }
+
+  /* 信保基金專案總覽 */
+  .smeg-basics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+  .fact-tile{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .fact-tile b{display:block;font-family:var(--serif);font-size:17px;color:var(--green-900);line-height:1.45}
+  .fact-tile span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
+  .smeg-bar{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chipbtn{font:inherit;font-size:14px;cursor:pointer;border:1.5px solid var(--line);background:var(--white);border-radius:99px;padding:6px 16px;color:var(--muted)}
+  .chipbtn:hover{border-color:var(--green-700)}
+  .chipbtn[aria-pressed=true]{background:var(--green-700);border-color:var(--green-700);color:#fff;font-weight:700}
+  .smeg-bar input[type=search]{font:inherit;width:260px;max-width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+  .smeg-bar input[type=search]:focus{border-color:var(--green-700);outline:none;box-shadow:0 0 0 3px var(--green-100)}
+  .smeg-count{font-size:14px;color:var(--muted);margin-bottom:14px}
+  .prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  details.prog{margin-bottom:0}
+  details.prog[hidden]{display:none}
+  details.prog summary{padding:16px 20px;align-items:flex-start}
+  .p-name{display:block;font-size:16px;line-height:1.5}
+  .p-one{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}
+  .tag{line-height:1.6;font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;background:var(--green-100);color:var(--green-900)}
+  .tag.check{background:var(--soil-100);color:#6F4A0E}
+  .tag.warn{background:#F9E3DD;color:#7A2A18}
+  .tag.src{background:var(--bg);color:var(--muted);border:1px solid var(--line);font-weight:400;padding:1px 10px}
+  .p-body{padding:0 20px 20px}
+  .p-body dl{display:grid;grid-template-columns:104px 1fr;gap:10px 14px;font-size:14px;border-top:1px solid var(--line);padding-top:14px}
+  .p-body dt{font-weight:700;color:var(--green-900)}
+  .p-body dd{color:var(--ink)}
+  .smeg-empty{display:none;border:2px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--muted);background:var(--white)}
+  .name-lists{margin-top:26px}
+  .name-lists > h3{font-family:var(--serif);font-size:20px;color:var(--green-900);margin-bottom:4px}
+  .name-lists > p{font-size:14px;color:var(--muted);margin-bottom:14px}
+  .chip-list{display:flex;flex-wrap:wrap;gap:8px;padding:0 22px 20px}
+  .chip-list .nm{font-size:14px;padding:5px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
+  .chip-list .nm[hidden]{display:none}
+  details.names[hidden]{display:none}
+  .smeg-note{margin-top:24px;font-size:14px;color:var(--muted)}
+  .smeg-note a{color:var(--green-700);font-weight:700}
+  @media (max-width:900px){
+    .smeg-basics{grid-template-columns:1fr 1fr}
+    .prog-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .smeg-basics{grid-template-columns:1fr}
+    .p-body dl{grid-template-columns:1fr;gap:2px}
+    .p-body dd{margin-bottom:8px}
+  }
+
+  /* ===== 資金規劃流程 ===== */
+  .flow-steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .flow-card{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px}
+  .flow-card:not(:last-child)::after{content:"";position:absolute;right:-14px;top:44px;width:10px;height:10px;border-top:3px solid var(--green-700);border-right:3px solid var(--green-700);transform:rotate(45deg)}
+  .flow-no{font-family:var(--serif);font-size:36px;font-weight:700;color:var(--green-700);line-height:1}
+  .flow-card h3{font-family:var(--serif);font-size:20px;color:var(--green-900);line-height:1.4}
+  .flow-card p{font-size:15px;color:var(--muted)}
+  .flow-card .go{margin-top:auto;padding-top:8px;font-weight:700;color:var(--green-700);text-decoration:none;font-size:15px}
+  .flow-card .go:hover{text-decoration:underline}
+
+  /* ===== 資金用途 ===== */
+  .use-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .use-link{display:flex;flex-direction:column;gap:2px;background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:16px 18px;text-decoration:none;transition:border-color .2s,box-shadow .2s}
+  .use-link:hover{border-color:var(--green-700);box-shadow:0 8px 22px rgba(15,90,66,.12)}
+  .use-link .no{font-family:var(--serif);font-size:14px;color:var(--soil);font-weight:700}
+  .use-link b{font-family:var(--serif);font-size:20px;color:var(--green-900)}
+  .use-link small{font-size:14px;color:var(--muted)}
+  .use-block{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:28px;margin-top:22px}
+  .use-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
+  .use-head h3{font-family:var(--serif);font-size:26px;color:var(--green-900);line-height:1.4}
+  .use-head p{color:var(--muted);margin-top:2px}
+  .use-cols{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+  .use-cols h4{font-size:16px;color:var(--green-900);margin-bottom:6px}
+  .use-desc{color:var(--ink);font-size:15px}
+  .sit{list-style:none;display:grid;gap:6px;font-size:15px}
+  .sit li{padding-left:22px;position:relative}
+  .sit li::before{content:"";position:absolute;left:3px;top:.7em;width:8px;height:8px;border-radius:50%;background:var(--soil)}
+  .ind{display:flex;flex-wrap:wrap;gap:8px}
+  .ind span{background:var(--green-100);color:var(--green-900);border-radius:99px;padding:3px 12px;font-size:14px}
+  .use-foot{font-size:13px;color:var(--muted);margin-top:8px}
+  .use-sub{font-size:13px;color:var(--muted);margin-bottom:10px}
+  .prog-links{list-style:none;display:grid;gap:8px}
+  .prog-links a{display:block;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);text-decoration:none;transition:border-color .2s}
+  .prog-links a:hover{border-color:var(--green-700)}
+  .prog-links b{display:block;font-size:15px;color:var(--green-900)}
+  .prog-links small{display:block;font-size:13px;color:var(--muted)}
+
+  /* ===== 企業金流服務 ===== */
+  .pick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+  .pick-grid div{background:var(--soil-100);border-radius:10px;padding:12px 16px}
+  .pick-grid small{display:block;font-size:13px;color:#6F4A0E}
+  .pick-grid b{font-size:15px;color:var(--green-900)}
+  .cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .cf-card{display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .cf-top{display:flex;gap:12px;align-items:center}
+  .cf-no{flex:none;width:36px;height:36px;border-radius:50%;background:var(--green-700);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:700}
+  .cf-top h3{font-family:var(--serif);font-size:22px;line-height:1.4}
+  .cf-top h3 a{color:var(--green-900);text-decoration:none;border-bottom:2px solid var(--soil)}
+  .cf-top h3 a:hover{color:var(--green-700)}
+  .cf-tag{margin-top:8px;color:var(--muted);font-size:15px}
+  .cf-list{list-style:none;display:grid;gap:8px;margin-top:14px;font-size:14.5px}
+  .cf-list li{padding-left:22px;position:relative}
+  .cf-list li::before{content:"";position:absolute;left:3px;top:.55em;width:10px;height:6px;border-left:2.5px solid var(--green-700);border-bottom:2.5px solid var(--green-700);transform:rotate(-45deg)}
+  .cf-meta{display:grid;grid-template-columns:72px 1fr;gap:6px 10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:14px}
+  .cf-meta dt{font-weight:700;color:var(--green-900)}
+  .cf-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:18px}
+  .cf-actions .btn{padding:9px 18px;font-size:14px}
+
+  /* ===== 聯絡：準備清單 ===== */
+  .prep{display:grid;gap:4px;background:#fff;color:var(--ink);border-radius:12px;padding:26px}
+  .prep-row{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+  .prep-row:first-child{border-top:0;padding-top:0}
+  .prep-no{flex:none;width:34px;height:34px;border-radius:50%;background:var(--green-700);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:700}
+  .prep-row b{font-size:17px}
+  .prep-row p{font-size:14px;color:var(--muted);margin:2px 0 0}
+  .contact .prep-row p{color:var(--muted)}
+  .prep-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .prep-btns .btn{padding:9px 16px;font-size:14px}
+  .btn[disabled]{opacity:.45;cursor:not-allowed}
+
+  /* ===== 資金規劃試算視窗 ===== */
+  .pf-flow{font-size:13px;color:var(--muted)}
+  .pf-sec{margin-top:20px}
+  .pf-sec:first-child{margin-top:0}
+  .pf-sec > h4{font-family:var(--serif);font-size:18px;color:var(--green-900);line-height:1.4}
+  .pf-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  .pf label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+  .pf label span{font-weight:400;color:var(--muted)}
+  .pf-hint{font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:6px}
+  .pf-hint b{color:var(--green-900)}
+  .pf-result{margin-top:24px;padding-top:20px;border-top:2px solid var(--line)}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .tile{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .tile small{display:block;color:var(--muted);font-size:13px}
+  .tile b{font-family:var(--serif);font-size:21px;color:var(--green-900)}
+  .tile.hl{background:var(--green-100);border-color:var(--green-100)}
+  .scroll-x{overflow-x:auto}
+  table.scen{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;min-width:560px}
+  table.scen th,table.scen td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  table.scen th{background:var(--bg);font-size:13px;color:var(--muted)}
+  .b-good,.b-watch,.b-warn{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;white-space:nowrap}
+  .b-good{background:var(--green-100);color:var(--green-900)}
+  .b-watch{background:var(--soil-100);color:#6F4A0E}
+  .b-warn{background:#F9E3DD;color:#7A2A18}
+  .pf-notes{margin:10px 0 0 20px;color:var(--muted);font-size:14px;display:grid;gap:6px}
+  .res-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .res-actions .btn{padding:9px 16px;font-size:14px}
+  .pf-prog{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .pf-prog a{font-size:14px;padding:5px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--line);text-decoration:none;color:var(--green-900)}
+  .pf-prog a:hover{border-color:var(--green-700)}
+  .pf-h{font-family:var(--serif);font-size:18px;color:var(--green-900);margin-top:20px}
+
+  /* ===== 列印表單（A4） ===== */
+  #printSheet{display:none}
+  #printSheet h1{font-size:20px;margin:0 0 4px}
+  #printSheet h2{font-size:15px;margin:16px 0 6px}
+  #printSheet .brand-line{font-size:11px;color:#444;margin-bottom:6px}
+  #printSheet .meta{font-size:12px;margin:2px 0}
+  #printSheet table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:4px}
+  #printSheet th,#printSheet td{border:1px solid #444;padding:4px 6px;vertical-align:top;text-align:left}
+  #printSheet th{background:#eee}
+  #printSheet .box{font-size:15px;text-align:center;width:28px}
+  #printSheet .blank{display:inline-block;min-width:90px;border-bottom:1px solid #000}
+  #printSheet .foot{font-size:11px;margin-top:12px;color:#333}
+  #printSheet ul{margin:4px 0 0 18px;font-size:11.5px}
+  @media print{
+    @page{size:A4;margin:14mm}
+    body.printing > *:not(#printSheet){display:none!important}
+    body.printing #printSheet{display:block;color:#000;background:#fff;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.55}
+    body.printing{background:#fff}
+    #printSheet tr{break-inside:avoid}
+  }
+
+  @media (max-width:1000px){
+    .flow-steps{grid-template-columns:1fr 1fr}
+    .flow-card:not(:last-child)::after{display:none}
+    .use-nav,.pick-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:900px){
+    .use-cols,.cf-grid{grid-template-columns:1fr}
+    .use-block{padding:20px}
+    .pf-grid{grid-template-columns:1fr}
+    .tiles{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:520px){
+    .flow-steps,.use-nav,.pick-grid{grid-template-columns:1fr}
+    .cf-meta{grid-template-columns:1fr;gap:2px}
+    .cf-meta dd{margin-bottom:8px}
+  }
+  @media (max-width:900px){
+    nav.main{display:none}
+    .hero .wrap,.split,.contact .wrap,.panel.active{grid-template-columns:1fr}
+    .hero .wrap{padding:48px 0 60px;gap:36px}
+    .steps{grid-template-columns:1fr;gap:28px}
+    .steps li{padding:0 0 0 62px}
+    .steps li::before{position:absolute;left:0;top:0}
+    .steps li::after{display:none}
+    .steps h3{margin-top:0}
+    section.block{padding:60px 0}
+    .contact .wrap{padding:60px 0;gap:36px}
+  }
+  @media (max-width:520px){
+    form.card .row{grid-template-columns:1fr}
+    .compare{grid-template-columns:1fr}
+    .top .btn{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="回到頁首">
+      <div class="brand-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9"/><path d="M12 13c-4 0-6-2.5-6-6 4 0 6 2 6 6z"/><path d="M12 11c0-3 2-5 6-5 0 3.500-2 5-6 5z"/></svg>
+      </div>
+      <div><span>土地銀行</span><small>中小企業融資專區</small></div>
+    </a>
+    <nav class="main" aria-label="主選單">
+      <a href="#flow">資金流程</a>
+      <a href="#uses">資金用途</a>
+      <a href="#smeg">信保專案</a>
+      <a href="#checkup">財務健檢</a>
+      <a href="#docs">文件清單</a>
+      <a href="#cashflow">企業金流</a>
+    </nav>
+    <a class="btn btn-primary" href="#contact">找專人討論</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>資金卡關的時候，<br>先跟土地銀行聊聊</h1>
+      <p class="lead">從週轉、設備、展店到海外投資，一個專區看懂資金怎麼規劃、可以搭配哪些信保專案、要準備什麼。</p>
+      <div class="actions">
+        <a class="btn btn-soil" href="#uses">開始規劃資金</a>
+        <a class="btn btn-ghost" href="#flow">看規劃流程</a>
+      </div>
+      <ul class="points">
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="#E2B867" stroke-width="2"/></svg>可搭配中小企業信用保證，降低擔保品壓力</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="#E2B867" stroke-width="2"/></svg>國營銀行，配合政府中小企業政策推出專案貸款</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="#E2B867" stroke-width="2"/></svg>全台分行都有專人協助，可就近洽談</li>
+      </ul>
+    </div>
+
+    <div class="matcher" id="matcher">
+      <h2>三十秒，找出適合的方向</h2>
+      <p class="sub">選擇資金用途與需求金額，先看可以了解哪些信保專案。</p>
+      <div class="field">
+        <label for="purpose">資金用途</label>
+        <select id="purpose">
+          <option value="working">營運週轉金（進貨、薪資、應收帳款空窗）</option>
+          <option value="equip">廠房與設備</option>
+          <option value="expand">展店與擴張</option>
+          <option value="overseas">海外投資</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="amount">
+          <label for="amount">需求金額</label>
+          <output id="amountOut" for="amount">500 萬元</output>
+        </div>
+        <input type="range" id="amount" min="100" max="5000" step="100" value="500">
+      </div>
+      <div class="result" id="result" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 一次看懂資金規劃流程 -->
+<section class="block white" id="flow">
+  <div class="wrap">
+    <div class="sec-head" style="max-width:720px">
+      <h2>一次看懂資金規劃流程</h2>
+      <p>四個步驟，把生意經驗換成看得懂的數字，再帶著計畫找專人討論。</p>
+    </div>
+    <ol class="flow-steps">
+      <li class="flow-card">
+        <span class="flow-no">01</span>
+        <h3>選擇用途</h3>
+        <p>要進貨、買設備、開新店，還是投資海外？先選對模型，再填適合您的資料。</p>
+        <a class="go" href="#uses">選擇資金用途 →</a>
+      </li>
+      <li class="flow-card">
+        <span class="flow-no">02</span>
+        <h3>填入經營數字</h3>
+        <p>用營收、收付款時間與投資預算，把生意經驗換成看得懂的數字。</p>
+        <a class="go" href="#uses">選好用途後填寫 →</a>
+      </li>
+      <li class="flow-card">
+        <span class="flow-no">03</span>
+        <h3>按下更新，看懂結果</h3>
+        <p>檢視資金缺口、還款負擔與情境風險，調整假設後可重新試算、下載摘要。</p>
+        <a class="go" href="#uses">開始試算 →</a>
+      </li>
+      <li class="flow-card">
+        <span class="flow-no">04</span>
+        <h3>帶著計畫，找專人討論</h3>
+        <p>整理試算摘要與文件需求，至官方留言板留言，由專人回覆；本頁試算不會自動傳送。</p>
+        <a class="go" href="#contact">準備找專人討論 →</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- 信任帶 -->
+<div class="trust">
+  <div class="wrap">
+    <strong>2026 信保基金績優金融機構</strong>
+    <span>協助中小微企業多元發展獎（淨零轉型類）</span>
+    <span>協助區域發展獎</span>
+  </div>
+</div>
+
+<!-- 資金用途 -->
+<section class="block" id="uses">
+  <div class="wrap">
+    <div class="sec-head" style="max-width:720px">
+      <h2>這筆資金，要讓生意走到哪裡？</h2>
+      <p>選一個最接近的用途，看說明、適合的行業，以及可搭配的信保基金專案，也可以直接開始試算。</p>
+    </div>
+
+    <nav class="use-nav" aria-label="資金用途">
+      <a class="use-link" href="#use-working"><span class="no">一</span><b>營運週轉金</b><small>讓進貨、發薪、付租金不中斷</small></a>
+      <a class="use-link" href="#use-equip"><span class="no">二</span><b>廠房與設備</b><small>擴大產能、提升效率</small></a>
+      <a class="use-link" href="#use-expand"><span class="no">三</span><b>展店與擴張</b><small>開新店、拓展據點</small></a>
+      <a class="use-link" href="#use-overseas"><span class="no">四</span><b>海外投資</b><small>布局海外市場與生產</small></a>
+    </nav>
+
+    <article class="use-block" id="use-working">
+      <div class="use-head">
+        <div>
+          <h3>（一）營運週轉金</h3>
+          <p>讓日常進貨、發薪、付租金不中斷。</p>
+        </div>
+        <button type="button" class="btn btn-primary" data-plan="working">開始試算：營運週轉金</button>
+      </div>
+      <div class="use-cols">
+        <div>
+          <h4>資金用途說明</h4>
+          <p class="use-desc">營運週轉金用來支應日常營運的現金需求，例如進貨、原料採購、員工薪資、租金與水電。當客戶付款的期限比您付給供應商的期限更長，或旺季要先備貨、接大單要先墊料，現金就容易出現空窗。借款通常以短期到中期為主，還款來源是正常營運的現金流。</p>
+          <h4 style="margin-top:16px">常見情境</h4>
+          <ul class="sit"><li>旺季前先備貨</li><li>接大額訂單，需要先墊料</li><li>應收帳款的收款期較長</li><li>淡旺季明顯，需要平衡現金</li></ul>
+          <h4 style="margin-top:16px">適合的行業別</h4>
+          <div class="ind"><span>批發零售業</span><span>製造業（代工、零組件）</span><span>餐飲與食品加工</span><span>貿易業</span><span>營造與工程承攬</span><span>物流與運輸服務</span><span>農產與農業加工</span></div>
+          <p class="use-foot">適合的行業為常見情況，實際仍依個案審核。</p>
+        </div>
+        <div>
+          <h4>可搭配的信保基金專案</h4>
+          <p class="use-sub">點選專案名稱，會跳到「信保基金保證專案總覽」並展開說明。</p>
+          <ul class="prog-links"><li><a href="#smeg" data-prog="一般貸款信用保證"><b>一般貸款信用保證</b><small>最常用的基本保證，補足擔保品不足</small></a></li><li><a href="#smeg" data-prog="購料週轉融資信用保證"><b>購料週轉融資信用保證</b><small>為採購原物料等週轉所需</small></a></li><li><a href="#smeg" data-prog="中小微企業多元發展專案貸款"><b>中小微企業多元發展專案貸款</b><small>週轉性支出最長 6 年</small></a></li><li><a href="#smeg" data-prog="批次信用保證"><b>批次信用保證</b><small>銀行以批次方式送保，同一企業額度可達 2 億元</small></a></li><li><a href="#smeg" data-prog="企業小頭家貸款信用保證"><b>企業小頭家貸款信用保證</b><small>員工 10 人以下的小事業</small></a></li><li><a href="#smeg" data-prog="中小企業千億保專案"><b>中小企業千億保專案</b><small>實收資本額 3,000 萬元以下的小額週轉</small></a></li></ul>
+        </div>
+      </div>
+    </article>
+    <article class="use-block" id="use-equip">
+      <div class="use-head">
+        <div>
+          <h3>（二）廠房與設備</h3>
+          <p>擴大產能、提升效率與品質。</p>
+        </div>
+        <button type="button" class="btn btn-primary" data-plan="equip">開始試算：廠房與設備</button>
+      </div>
+      <div class="use-cols">
+        <div>
+          <h4>資金用途說明</h4>
+          <p class="use-desc">用於購置、興建或整修廠房與營業場所，採購機器設備、自動化與節能設備，提升產能、品質或降低能耗。這類資本性支出金額較大、回收期較長，貸款期限通常配合設備使用年限；申請時要準備報價單或估價單，並說明投資後營收或成本的改善。以多元發展專案貸款為例，購置機器設備最長 7 年，且以不超過計畫經費 8 成為原則。</p>
+          <h4 style="margin-top:16px">常見情境</h4>
+          <ul class="sit"><li>新增產線或機台</li><li>導入自動化與數位系統</li><li>更換節能設備</li><li>擴建、搬遷或整修廠房</li></ul>
+          <h4 style="margin-top:16px">適合的行業別</h4>
+          <div class="ind"><span>製造業（金屬加工、塑膠、電子、機械）</span><span>食品與農產加工</span><span>印刷與包裝</span><span>倉儲物流</span><span>營造與建材</span><span>再生能源與節能服務</span></div>
+          <p class="use-foot">適合的行業為常見情況，實際仍依個案審核。</p>
+        </div>
+        <div>
+          <h4>可搭配的信保基金專案</h4>
+          <p class="use-sub">點選專案名稱，會跳到「信保基金保證專案總覽」並展開說明。</p>
+          <ul class="prog-links"><li><a href="#smeg" data-prog="中小微企業多元發展專案貸款"><b>中小微企業多元發展專案貸款</b><small>購置機器設備最長 7 年，另有數位、淨零轉型用途</small></a></li><li><a href="#smeg" data-prog="中小企業加速投資貸款信用保證"><b>中小企業加速投資貸款信用保證</b><small>新（擴）建廠房、增添機器設備；請確認受理期限</small></a></li><li><a href="#smeg" data-prog="一般貸款信用保證"><b>一般貸款信用保證</b><small>資本性支出也可適用，最高 9 成</small></a></li><li><a href="#smeg" data-prog="國家發展優惠保證措施"><b>國家發展優惠保證措施</b><small>符合條件者可享外加額度與優惠成數</small></a></li></ul>
+        </div>
+      </div>
+    </article>
+    <article class="use-block" id="use-expand">
+      <div class="use-head">
+        <div>
+          <h3>（三）展店與擴張</h3>
+          <p>開新店、拓展據點，把成功的模式複製出去。</p>
+        </div>
+        <button type="button" class="btn btn-primary" data-plan="expand">開始試算：展店與擴張</button>
+      </div>
+      <div class="use-cols">
+        <div>
+          <h4>資金用途說明</h4>
+          <p class="use-desc">用於新增門市、分店、據點或擴大營業面積。資金包含裝修、設備、押金與保證金，以及開幕初期尚未達到損益兩平時的人事與租金。新店通常有「養店期」，現金流可能連續數個月為負，規劃時要把這段預備金一起算進去，避免店開了、現金卻先見底。</p>
+          <h4 style="margin-top:16px">常見情境</h4>
+          <ul class="sit"><li>開第二家以上的門市</li><li>搬到更大的店面</li><li>設立中央廚房或倉儲據點</li><li>以加盟或連鎖方式擴張</li></ul>
+          <h4 style="margin-top:16px">適合的行業別</h4>
+          <div class="ind"><span>餐飲業</span><span>零售與連鎖品牌</span><span>美容美髮與健身</span><span>教育與托育</span><span>旅宿與休閒</span><span>診所與健康服務</span></div>
+          <p class="use-foot">適合的行業為常見情況，實際仍依個案審核。</p>
+        </div>
+        <div>
+          <h4>可搭配的信保基金專案</h4>
+          <p class="use-sub">點選專案名稱，會跳到「信保基金保證專案總覽」並展開說明。</p>
+          <ul class="prog-links"><li><a href="#smeg" data-prog="一般貸款信用保證"><b>一般貸款信用保證</b><small>擴張所需的資本性支出與週轉資金</small></a></li><li><a href="#smeg" data-prog="中小微企業多元發展專案貸款"><b>中小微企業多元發展專案貸款</b><small>協助通路發展、優化經營效能</small></a></li><li><a href="#smeg" data-prog="青年創業及啟動金貸款"><b>青年創業及啟動金貸款</b><small>青年創業者開設第一家店</small></a></li><li><a href="#smeg" data-prog="企業小頭家貸款信用保證"><b>企業小頭家貸款信用保證</b><small>員工 10 人以下的小事業</small></a></li><li><a href="#smeg" data-prog="中小企業千億保專案"><b>中小企業千億保專案</b><small>實收資本額 3,000 萬元以下的小額資金</small></a></li></ul>
+        </div>
+      </div>
+    </article>
+    <article class="use-block" id="use-overseas">
+      <div class="use-head">
+        <div>
+          <h3>（四）海外投資</h3>
+          <p>布局海外市場，讓生意走出臺灣。</p>
+        </div>
+        <button type="button" class="btn btn-primary" data-plan="overseas">開始試算：海外投資</button>
+      </div>
+      <div class="use-cols">
+        <div>
+          <h4>資金用途說明</h4>
+          <p class="use-desc">用於赴海外設立公司、工廠、辦事處或通路據點。資金需求大、回收期長，還要面對匯率變動、當地法規，以及從設立到開始有營收的籌備期。規劃時除了投資總額，也要估算籌備期每月費用，並檢視匯率不利、收入打折時還款是否撐得住。外銷型企業也可以一併了解外銷貸款與避險額度類保證。</p>
+          <h4 style="margin-top:16px">常見情境</h4>
+          <ul class="sit"><li>設立海外子公司或工廠</li><li>成立海外銷售據點</li><li>新南向市場布局</li><li>海外通路合作與備貨</li></ul>
+          <h4 style="margin-top:16px">適合的行業別</h4>
+          <div class="ind"><span>外銷導向製造業</span><span>電子與零組件</span><span>機械設備</span><span>紡織與食品</span><span>跨境電商與貿易</span><span>軟體與服務業</span></div>
+          <p class="use-foot">適合的行業為常見情況，實際仍依個案審核。</p>
+        </div>
+        <div>
+          <h4>可搭配的信保基金專案</h4>
+          <p class="use-sub">點選專案名稱，會跳到「信保基金保證專案總覽」並展開說明。</p>
+          <ul class="prog-links"><li><a href="#smeg" data-prog="協助中小企業赴新南向國家、有邦交國家投資融資信用保證"><b>協助中小企業赴新南向國家、有邦交國家投資融資信用保證</b><small>海外投資所需融資；新南向手續費為固定費率 0.1%</small></a></li><li><a href="#smeg" data-prog="外銷貸款優惠保證加碼信用保證"><b>外銷貸款優惠保證加碼信用保證</b><small>外銷企業的高額度、低手續費保證</small></a></li><li><a href="#smeg" data-prog="外銷貸款信用保證"><b>外銷貸款信用保證</b><small>補足出口前後的資金缺口</small></a></li><li><a href="#smeg" data-prog="協助企業取得避險額度信用保證措施"><b>協助企業取得避險額度信用保證措施</b><small>鎖定出口利潤；原定期限已過，請確認</small></a></li></ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 信用保證 -->
+<section class="block white" id="guarantee">
+  <div class="wrap split">
+    <div class="guarantee-box">
+      <h3>擔保品不夠，不代表借不到</h3>
+      <p>符合條件的中小企業，銀行可送請中小企業信用保證基金提供保證，由保證機制分擔一部分授信風險。</p>
+      <div class="compare">
+        <div><b>沒有保證時</b>銀行主要依擔保品與財務狀況評估</div>
+        <div><b>有信用保證時</b>可補足擔保品的不足，保證成數依專案規定</div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-head" style="margin-bottom:22px">
+        <h2>怎麼知道自己適不適用？</h2>
+        <p>是否適用信用保證及保證成數，依專案規定與信保基金審核而定。先備好基本文件，專員能更快協助判斷。</p>
+      </div>
+      <a class="btn btn-primary" href="#smeg">查看信保基金所有專案</a> <a class="btn btn-ghost" href="#docs" style="margin-left:8px">文件準備清單</a>
+    </div>
+  </div>
+</section>
+
+<!-- 信保基金專案總覽 -->
+<section class="block" id="smeg">
+  <div class="wrap">
+    <div class="sec-head" style="max-width:760px">
+      <h2>信保基金保證專案總覽</h2>
+      <p>中小企業信用保證基金（簡稱信保基金）提供的保證項目與專案，依用途分類整理。點開每個專案，看適用對象、額度、成數與重點說明。</p>
+    </div>
+
+    <div class="smeg-basics">
+      <div class="fact-tile"><b>誰可以申請</b><span>實收資本額 1 億元以下，或經常僱用員工未滿 200 人的中小企業，不含金融保險業、特殊娛樂業。</span></div>
+      <div class="fact-tile"><b>怎麼送保</b><span>多數由銀行代為送保（間接保證）；部分項目可直接向信保基金申請。</span></div>
+      <div class="fact-tile"><b>常見保證成數</b><span>多為 8 成至 9 成；部分專案可達 9.5 成或 10 成。</span></div>
+      <div class="fact-tile"><b>保證手續費</b><span>經銀行送保的一般項目，年費率約 0.375%～1.375%，依風險核定；專案另有優惠。</span></div>
+    </div>
+
+    <div class="smeg-bar">
+      <div class="chips" id="smegChips" role="group" aria-label="專案分類"></div>
+      <input type="search" id="smegSearch" placeholder="搜尋專案，例如：外銷、創業、災害" aria-label="搜尋專案">
+    </div>
+    <p class="smeg-count" id="smegCount" aria-live="polite"></p>
+
+    <div class="prog-grid" id="smegGrid"></div>
+    <div class="smeg-empty" id="smegEmpty">沒有符合的專案，請換個關鍵字或分類。</div>
+
+    <div class="name-lists" id="smegNames">
+      <h3>其他專案名單</h3>
+      <p>以下是信保基金官網列出的專案名稱。細節條件請至官網查詢，或洽承貸銀行。</p>
+      <div id="smegNameBox"></div>
+    </div>
+
+    <p class="smeg-note">資料彙整日期：2026 年 10 月 23 日，來源為信保基金官網、各銀行與政府公開資料及媒體報導。專案條件與受理期限常調整，標示「請確認」的項目務必以 <a href="https://www.smeg.org.tw" target="_blank" rel="noopener">信保基金官網</a> 與承貸銀行公告為準。本頁不代表土地銀行承辦全部專案，實際承作範圍請洽分行。</p>
+  </div>
+</section>
+
+<!-- 財務健檢 -->
+<section class="block white" id="checkup">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>公司財務健檢</h2>
+      <p>點選下方任一步驟，會跳出填寫視窗。每個數字都附上白話意義與查找位置，輸入後立刻計算。資料只在您的瀏覽器處理，不會傳送或儲存。</p>
+    </div>
+
+    <div class="ck-tools">
+      <p>建議依序完成 STEP1 到 STEP3，也可以先從任一步驟開始。</p>
+      <div class="btns">
+        <button type="button" class="btn btn-ghost" id="ckSample">帶入範例數字</button>
+        <button type="button" class="btn btn-ghost" id="ckClear">全部清除</button>
+        <button type="button" class="btn btn-primary" id="ckPrint">列印財務健檢清單</button>
+      </div>
+    </div>
+
+    <div class="step-cards" id="ckCards"></div>
+    <div class="ck-result" id="ckResult" aria-live="polite"></div>
+
+    <p class="tips">這是依一般財務比率做的概略參考，不是銀行的授信評分，也不代表核貸與否。不同行業的合理水準差異很大，實際審核以分行評估為準。金額單位統一用「萬元」，數字不確定時，請會計師或記帳業者協助。</p>
+  </div>
+</section>
+
+<!-- 文件準備清單 -->
+<section class="block" id="docs">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>申請文件準備清單</h2>
+      <p>選擇資金用途，勾選已備妥的文件。實際需要補充的資料，以分行專員通知為準。</p>
+    </div>
+
+    <div class="docs-tools no-print">
+      <div class="field">
+        <label for="docFor">資金用途</label>
+        <select id="docFor">
+          <option value="working">營運週轉</option>
+          <option value="equipment">購置機器設備</option>
+          <option value="export">外銷接單</option>
+          <option value="green">綠色轉型</option>
+          <option value="property">廠房與不動產</option>
+        </select>
+      </div>
+      <div class="progress" aria-live="polite">
+        <p>已備妥 <span id="docDone">0</span> / <span id="docTotal">0</span> 項</p>
+        <div class="bar"><i id="docBar"></i></div>
+      </div>
+      <div class="tool-btns">
+        <button type="button" class="btn btn-ghost" id="docReset">全部取消勾選</button>
+        <button type="button" class="btn btn-primary" id="docPrint">列印清單</button>
+      </div>
+    </div>
+
+    <div class="docs-grid">
+      <div class="doc-group" data-count="yes">
+        <h3>基本資料</h3>
+        <p class="hint">證明公司是誰、由誰負責</p>
+        <label class="doc"><input type="checkbox"><span><b>公司或商業登記文件</b><small>公司設立（變更）登記表，或商業登記抄本</small></span></label>
+        <label class="doc"><input type="checkbox"><span><b>公司章程或合夥契約</b><small>依組織型態準備，獨資商號可略過</small></span></label>
+        <label class="doc"><input type="checkbox"><span><b>負責人身分證明文件</b><small>身分證正反面影本；有保證人時一併準備</small></span></label>
+        <label class="doc"><input type="checkbox"><span><b>公司大小章</b><small>簽約與對保時會用到</small></span></label>
+      </div>
+
+      <div class="doc-group" data-count="yes">
+        <h3>財務資料</h3>
+        <p class="hint">讓專員了解營運與還款能力</p>
+        <label class="doc"><input type="checkbox"><span><b>財務報表或營利事業所得稅申報書</b><small>近二至三年；成立未滿者提供成立以來資料</small></span></label>
+        <label class="doc"><input type="checkbox"><span><b>營業稅申報書</b><small>近 12 個月（401 表），免稅或其他營業人依實際申報文件</small></span></label>
+        <label class="doc"><input type="checkbox"><span><b>往來銀行帳戶明細</b><small>近半年存摺封面與內頁影本，或網銀交易明細</small></span></label>
+        <label class="doc"><input type="checkbox"><span><b>現有借款明細</b><small>貸款銀行、餘額、利率、到期日整理成一張表即可</small></span></label>
+      </div>
+
+      <div class="doc-group" data-count="yes">
+        <h3>資金用途佐證</h3>
+        <p class="hint">說明這筆錢要做什麼，依用途顯示</p>
+        <label class="doc" data-for="working export"><input type="checkbox"><span><b>主要客戶訂單與應收、應付帳款明細</b><small>可看出週轉缺口從哪裡來</small></span></label>
+        <label class="doc" data-for="equipment green"><input type="checkbox"><span><b>設備報價單或估價單</b><small>載明品項、數量、金額與供應商</small></span></label>
+        <label class="doc" data-for="export"><input type="checkbox"><span><b>外銷訂單或出口文件</b><small>出口訂單、信用狀、報關資料，擇可取得者提供</small></span></label>
+        <label class="doc" data-for="green"><input type="checkbox"><span><b>節能、綠電或綠建築規劃資料</b><small>投資內容、預期效益與相關認證文件</small></span></label>
+        <label class="doc" data-for="property"><input type="checkbox"><span><b>廠房購置契約或興建估價資料</b><small>買賣契約書、建築預算或工程估價單</small></span></label>
+        <label class="doc"><input type="checkbox"><span><b>簡易營運計畫</b><small>主要產品、客戶、資金用途與預計還款來源，一頁說明即可</small></span></label>
+      </div>
+
+      <div class="doc-group optional" data-count="no">
+        <h3>擔保品文件（如提供）</h3>
+        <p class="hint">選擇以不動產擔保時才需要，不計入進度</p>
+        <label class="doc"><input type="checkbox"><span><b>土地、建物所有權狀影本</b><small>名義人需與擔保提供人一致</small></span></label>
+        <label class="doc"><input type="checkbox"><span><b>土地、建物登記謄本</b><small>建議申請近期核發的版本</small></span></label>
+        <label class="doc"><input type="checkbox"><span><b>擔保提供人身分證明文件</b><small>擔保提供人非負責人本人時需要</small></span></label>
+      </div>
+    </div>
+
+    <p class="tips"><strong>小提醒：</strong>影本請確認清晰、文字完整；文件日期以近三個月內較為穩妥。不確定哪些文件適用時，可以先預約專員，由專員告訴您要準備什麼。</p>
+  </div>
+</section>
+
+<!-- 土地銀行四大企業金流服務 -->
+<section class="block white" id="cashflow">
+  <div class="wrap">
+    <div class="sec-head" style="max-width:760px">
+      <h2>土地銀行四大企業金流服務</h2>
+      <p>從付款、收款到帳務管理與系統串接，把每天的資金進出整理成有效率的流程。點選服務名稱，可前往土地銀行官方說明頁。</p>
+    </div>
+
+    <div class="pick-grid" aria-label="我該用哪一個服務">
+      <div><small>要付供應商貨款、費用</small><b>企業委託整批付款</b></div>
+      <div><small>要向客戶、會員按期收款</small><b>企業委託收款管理</b></div>
+      <div><small>日常查帳、轉帳、繳費與審核</small><b>企業網路銀行</b></div>
+      <div><small>想讓付款資料自動串接系統</small><b>金融電子資料交換（EDI）</b></div>
+    </div>
+
+    <div class="cf-grid">
+
+      <article class="cf-card" id="cf-pay">
+        <div class="cf-top"><span class="cf-no">1</span>
+          <h3><a href="https://www.landbank.com.tw/Category/Items/%E4%BC%81%E6%A5%AD%E8%B2%A1%E5%8B%99%E9%87%91%E6%B5%81%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1_EasyUse_" target="_blank" rel="noopener">企業委託整批付款服務</a></h3></div>
+        <p class="cf-tag">一次上傳付款檔，排程撥款給供應商與收款人。</p>
+        <ul class="cf-list">
+          <li>以檔案上傳方式，把一批應付帳款資料送到銀行系統，內部授權放行後，在指定付款日匯給收款人。</li>
+          <li>可預約兩年內的付款日；預約完成與扣帳後，銀行會以電子郵件、傳真或簡訊通知收款人。</li>
+          <li>支援多人、多階授權，可自訂簽核層級與有權人員，並使用 FXML 憑證晶片卡保護傳輸安全。</li>
+          <li>餘額不足或超過付款額度時會通知企業，補足後可自動執行，不必重新上傳檔案。</li>
+          <li>轉帳手續費可約定由付款人或收款人負擔；單筆逾 5,000 萬元的跨行轉帳會自動分拆。</li>
+          <li>收款人可線上查詢款項，也可申請預約付款融資，在帳款到期前先取得資金。</li>
+        </ul>
+        <dl class="cf-meta">
+          <dt>申請方式</dt><dd>在土地銀行開有活期性存款帳戶的企業，至往來營業單位提出申請。</dd>
+          <dt>適合誰</dt><dd>每月要付許多供應商貨款、費用，希望減少人工匯款的企業。</dd>
+        </dl>
+        <div class="cf-actions"><a class="btn btn-primary" href="https://www.landbank.com.tw/Category/Items/%E4%BC%81%E6%A5%AD%E8%B2%A1%E5%8B%99%E9%87%91%E6%B5%81%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1_EasyUse_" target="_blank" rel="noopener">官方服務說明</a></div>
+      </article>
+
+      <article class="cf-card" id="cf-collect">
+        <div class="cf-top"><span class="cf-no">2</span>
+          <h3><a href="https://www.landbank.com.tw/Category/Items/%E4%BC%81%E6%A5%AD%E5%A7%94%E8%A8%97%E6%94%B6%E6%AC%BE%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1_e-Collect" target="_blank" rel="noopener">企業委託收款管理</a></h3></div>
+        <p class="cf-tag">替每位客戶編專屬繳款編號，自動產生帳單、核對帳款。</p>
+        <ul class="cf-list">
+          <li>企業透過「企業委託收款管理系統」，替每位繳款人編定專屬編號，並產製帳單檔案與銷帳作業。</li>
+          <li>繳款人可登入系統即時繳款、列印帳單，也可依帳單資料改用其他管道繳款。</li>
+          <li>繳款管道包含分行臨櫃、匯款、ATM、網路 ATM、電話語音銀行、網路銀行、超商、郵局、農漁會與全國繳費網。</li>
+          <li>企業能取得繳款人的繳款資料，正確、快速地對帳。</li>
+        </ul>
+        <dl class="cf-meta">
+          <dt>申請方式</dt><dd>在土地銀行開有活期性存款帳戶的企業，至往來營業單位提出申請。</dd>
+          <dt>適合誰</dt><dd>有大量客戶、學員、會員或經銷商需要按期繳款的企業。</dd>
+        </dl>
+        <div class="cf-actions"><a class="btn btn-primary" href="https://www.landbank.com.tw/Category/Items/%E4%BC%81%E6%A5%AD%E5%A7%94%E8%A8%97%E6%94%B6%E6%AC%BE%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1_e-Collect" target="_blank" rel="noopener">官方服務說明</a></div>
+      </article>
+
+      <article class="cf-card" id="cf-ebank">
+        <div class="cf-top"><span class="cf-no">3</span>
+          <h3><a href="https://www.landbank.com.tw/Category/Items/%E4%BC%81%E6%A5%AD%E7%B6%B2%E8%B7%AF%E9%8A%80%E8%A1%8C" target="_blank" rel="noopener">企業網路銀行</a></h3></div>
+        <p class="cf-tag">財務人員在線上查帳、轉帳、繳費、傳檔與審核放行。</p>
+        <ul class="cf-list">
+          <li>查詢帳務總覽，以及存款、放款與外匯帳戶。</li>
+          <li>辦理臺幣轉帳、綜合存款、貸款與稅規費繳納、公用事業費用，也能多筆或整批建檔繳費。</li>
+          <li>提供檔案傳遞、通知查詢，以及線上申請與系統管理功能。</li>
+          <li>安全機制分兩種：SSL 適合一般低風險交易；FXML 憑證晶片卡用於大金額與整批傳檔。官網載明 SSL 約定轉入帳戶每筆與每日累計限額各 300 萬元（跨行每筆 200 萬元），以官網最新公告為準。</li>
+          <li>搭配「土地銀行企業網銀」手機 App，可審核與放行待辦事項，需配合讀卡機與 FXML 憑證晶片卡。</li>
+          <li>薪資撥付也能在企業網銀辦理當日或預約撥薪，用線上授權審核取代紙本作業。</li>
+        </ul>
+        <dl class="cf-meta">
+          <dt>申請方式</dt><dd>公司、行號、政府機關、學校、公營事業及其他團體（不含提供虛擬資產服務者），已在土地銀行開立活期性存款帳戶（含支票存款戶），由負責人攜證明文件、身分證與原留印鑑，至任一營業單位臨櫃申請。</dd>
+          <dt>適合誰</dt><dd>需要每天查帳、轉帳、繳費，並要多人分工簽核的企業。</dd>
+        </dl>
+        <div class="cf-actions">
+          <a class="btn btn-primary" href="https://www.landbank.com.tw/Category/Items/%E4%BC%81%E6%A5%AD%E7%B6%B2%E8%B7%AF%E9%8A%80%E8%A1%8C" target="_blank" rel="noopener">官方服務說明</a>
+          <a class="btn btn-ghost" href="https://lbotpt.landbank.com.tw/ECDefault.aspx" target="_blank" rel="noopener">企業網銀登入頁</a>
+        </div>
+      </article>
+
+      <article class="cf-card" id="cf-edi">
+        <div class="cf-top"><span class="cf-no">4</span>
+          <h3><a href="https://www.landbank.com.tw/Category/Items/%E9%87%91%E8%9E%8D%E9%9B%BB%E5%AD%90%E8%B3%87%E6%96%99%E4%BA%A4%E6%8F%9B%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener">金融電子資料交換（EDI）</a></h3></div>
+        <p class="cf-tag">用標準格式連線銀行，讓付款與轉帳自動化。</p>
+        <ul class="cf-list">
+          <li>企業電腦以標準格式（EDI），經由網際網路連線土地銀行主機，辦理資金調撥。</li>
+          <li>功能包含自行轉帳、跨行轉帳、跨網轉帳、餘額查詢與交易明細查詢。</li>
+          <li>效益是提升資金調度彈性、簡化付款作業的時間與成本、免除往返銀行，並提升企業內部自動化。</li>
+          <li>需向臺灣網路認證公司申請金融 EDI 簽章 IC 卡與憑證，一套可跨多家銀行使用。</li>
+          <li>官網另提供企業財務金流管理系統（EasyUse）軟體下載，其中有含 EDI 功能的版本。</li>
+        </ul>
+        <dl class="cf-meta">
+          <dt>申請方式</dt><dd>在土地銀行開有活期性存款帳戶者，請洽往來營業單位辦理。</dd>
+          <dt>適合誰</dt><dd>已有會計或 ERP 系統，希望付款資料自動串接銀行的企業。</dd>
+        </dl>
+        <div class="cf-actions"><a class="btn btn-primary" href="https://www.landbank.com.tw/Category/Items/%E9%87%91%E8%9E%8D%E9%9B%BB%E5%AD%90%E8%B3%87%E6%96%99%E4%BA%A4%E6%8F%9B%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener">官方服務說明</a></div>
+      </article>
+
+    </div>
+    <p class="smeg-note">以上為依土地銀行官網說明整理（2026 年 10 月 23 日），申請條件、限額與功能可能調整，請以官網公告與分行說明為準。</p>
+  </div>
+</section>
+
+<!-- 申請流程 -->
+<section class="block" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>四個步驟，從洽詢到撥款</h2>
+      <p>實際時程依案件內容與文件完整度而定。</p>
+    </div>
+    <ol class="steps">
+      <li><h3>留言洽詢</h3><p>至官方留言板留言，或直接到就近分行，說明資金需求。</p></li>
+      <li><h3>專員評估</h3><p>授信專員了解營運狀況，建議適合的專案與保證方式。</p></li>
+      <li><h3>送件審核</h3><p>備齊文件後送件，必要時移送信保基金。</p></li>
+      <li><h3>簽約撥款</h3><p>核准後完成對保與簽約，依約定撥款。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block white" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>常見問題</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>什麼樣的企業算中小企業？</summary>
+        <p>各專案的認定標準依主管機關規定，通常會參考實收資本額或經常僱用員工人數。實際是否符合，請由分行專員協助確認。</p>
+      </details>
+      <details>
+        <summary>剛成立不久的公司也能申請嗎？</summary>
+        <p>可以先洽詢。是否核貸會綜合評估營運計畫、負責人條件與財務資料，不同專案的要求也不一樣。</p>
+      </details>
+      <details>
+        <summary>沒有不動產可以抵押，還有機會嗎？</summary>
+        <p>符合條件時，銀行可送信用保證基金提供保證，補足擔保品的不足。是否適用及保證成數，依專案規定與審核結果為準。</p>
+      </details>
+      <details>
+        <summary>在這裡試算後，資料會送給銀行嗎？</summary>
+        <p>不會。試算與健檢都只在您的瀏覽器裡計算，不會自動傳送。若要與專人討論，請下載或列印摘要，再到官方留言板留言，由專人回覆；實際回覆時間以銀行公告為準。</p>
+      </details>
+      <details>
+        <summary>利率與額度是多少？</summary>
+        <p>利率與額度會依專案、信用狀況及擔保條件而異，本頁不列固定數字，請以銀行公告及專員說明為準。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 找專人討論 -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>帶著計畫，找專人討論</h2>
+      <p>把試算摘要與文件需求整理好，到官方留言板留言，由專人回覆。</p>
+      <p class="note">本頁的試算與健檢不會自動傳送，資料只留在您的瀏覽器裡。</p>
+    </div>
+    <div class="card prep">
+      <div class="prep-row">
+        <span class="prep-no">1</span>
+        <div>
+          <b>整理試算摘要</b>
+          <p id="planState">尚未試算。請先到「資金用途」選一個用途，按下更新取得結果。</p>
+          <div class="prep-btns">
+            <button type="button" class="btn btn-ghost" id="cDownload" disabled>下載試算摘要</button>
+            <button type="button" class="btn btn-ghost" id="cPrintPlan" disabled>列印試算摘要</button>
+          </div>
+        </div>
+      </div>
+      <div class="prep-row">
+        <span class="prep-no">2</span>
+        <div>
+          <b>備妥財務資料與文件</b>
+          <p>列印財務健檢表與申請文件清單，方便與會計師、專員核對。</p>
+          <div class="prep-btns">
+            <button type="button" class="btn btn-ghost" id="cPrintCk">列印財務健檢清單</button>
+            <button type="button" class="btn btn-ghost" id="cPrintDocs">列印文件準備清單</button>
+          </div>
+        </div>
+      </div>
+      <div class="prep-row">
+        <span class="prep-no">3</span>
+        <div>
+          <b>至官方留言板留言</b>
+          <p>留言時，可附上試算摘要的重點與文件需求，由專人回覆。</p>
+          <div class="prep-btns">
+            <a class="btn btn-primary" id="boardLink" href="https://www.landbank.com.tw/" target="_blank" rel="noopener">前往土地銀行官方網站留言</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong style="color:#fff">土地銀行中小企業融資專區（示範網站）</strong></div>
+    <div>本網站為作品示範，非土地銀行官方網站，內容僅供版面與流程展示，不構成任何授信承諾。貸款條件以銀行公告及審核結果為準。</div>
+    <div>官方資訊請參考 <a href="https://www.landbank.com.tw" target="_blank" rel="noopener">土地銀行官方網站</a>。</div>
+    <div>© <span id="yr"></span> Demo</div>
+  </div>
+</footer>
+
+<div class="modal" id="ckModal" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden>
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="m-steps" id="mSteps" role="group" aria-label="切換步驟"></div>
+      <button type="button" class="m-close" id="mClose" aria-label="關閉視窗">×</button>
+    </div>
+    <div class="modal-body" id="mBody"></div>
+    <div class="modal-foot">
+      <div class="m-msg" id="mMsg" role="alert"></div>
+      <button type="button" class="btn btn-ghost" id="mPrev">上一步</button>
+      <button type="button" class="btn btn-primary" id="mNext">下一步</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="planModal" role="dialog" aria-modal="true" aria-labelledby="pfTitle" hidden>
+  <div class="modal-box" style="width:min(860px,100%)">
+    <div class="modal-head">
+      <div>
+        <h3 id="pfTitle" style="font-family:var(--serif);font-size:20px;color:var(--green-900);line-height:1.4">資金規劃試算</h3>
+        <p class="pf-flow">02 填入經營數字　→　03 按下更新，看懂結果</p>
+      </div>
+      <button type="button" class="m-close" id="pfClose" aria-label="關閉視窗">×</button>
+    </div>
+    <div class="modal-body" id="pfBody"></div>
+    <div class="modal-foot">
+      <div class="m-msg" id="pfMsg" role="alert"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button type="button" class="btn btn-ghost" id="pfSample">載入範例數字</button>
+        <button type="button" class="btn btn-ghost" id="pfClear">清除</button>
+      </div>
+      <button type="button" class="btn btn-primary" id="pfUpdate">更新試算結果</button>
+    </div>
+  </div>
+</div>
+
+<div id="printSheet" aria-hidden="true"></div>
+
+<script>
+  // 頁尾年份
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ===== 列印工具（A4 表單） =====
+  (function(){
+    var sheet = document.getElementById('printSheet');
+    window.LBPrint = function(html){
+      sheet.innerHTML = html;
+      document.body.classList.add('printing');
+      setTimeout(function(){ window.print(); }, 80);
+    };
+    window.addEventListener('afterprint', function(){
+      document.body.classList.remove('printing');
+      sheet.innerHTML = '';
+    });
+    window.LBEsc = function(s){
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    };
+    window.LBSheetHead = function(title, sub){
+      var d = new Date();
+      var ds = d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate();
+      return '<div class="brand-line">土地銀行中小企業融資專區（示範網站）</div><h1>' + title + '</h1>'
+        + (sub ? '<div class="meta">' + sub + '</div>' : '')
+        + '<div class="meta">列印日期：' + ds + '</div>'
+        + '<div class="meta" style="margin-top:6px">公司名稱：<span class="blank" style="min-width:200px"></span>　聯絡人：<span class="blank"></span>　電話：<span class="blank"></span></div>';
+    };
+  })();
+
+  // ===== 首屏：資金用途媒合 =====
+  (function(){
+    var RECS = {
+      working: {t:'營運週轉金', d:'支應進貨、薪資與應收帳款空窗，通常以短期到中期借款為主。', p:['一般貸款信用保證', '購料週轉融資信用保證', '中小微企業多元發展專案貸款'], id:'use-working'},
+      equip:   {t:'廠房與設備', d:'購置廠房、機器設備等資本性支出，貸款期限通常配合設備年限。', p:['中小微企業多元發展專案貸款', '中小企業加速投資貸款信用保證', '一般貸款信用保證'], id:'use-equip'},
+      expand:  {t:'展店與擴張', d:'裝修、設備、押金，再加上新店養店期的預備金。', p:['一般貸款信用保證', '中小微企業多元發展專案貸款', '企業小頭家貸款信用保證'], id:'use-expand'},
+      overseas:{t:'海外投資', d:'投資金額大、回收期長，要同時考慮籌備期與匯率。', p:['協助中小企業赴新南向國家、有邦交國家投資融資信用保證', '外銷貸款優惠保證加碼信用保證', '外銷貸款信用保證'], id:'use-overseas'}
+    };
+    var sel = document.getElementById('purpose');
+    var amount = document.getElementById('amount');
+    var amountOut = document.getElementById('amountOut');
+    var result = document.getElementById('result');
+    function fmt(v){
+      v = Number(v);
+      return v >= 1000 ? (v / 1000).toString().replace(/\.0$/, '') + ' 千萬元' : v + ' 萬元';
+    }
+    function update(){
+      var r = RECS[sel.value];
+      amountOut.textContent = fmt(amount.value);
+      var extra = Number(amount.value) > 1000 ? '金額較大時，銀行通常會要求更完整的財務資料與規劃。' : '';
+      result.innerHTML = '<b>' + r.t + '</b><p>' + r.d + '可先了解：' + r.p.join('、') + '。' + extra + '</p>'
+        + '<a href="#' + r.id + '">看資金用途說明</a><a href="#" data-plan="' + sel.value + '" style="margin-left:16px">開始試算</a>';
+    }
+    sel.addEventListener('change', update);
+    amount.addEventListener('input', update);
+    update();
+  })();
+
+  // 文件準備清單
+  (function(){
+    var KEY = 'landbank-docs-v1';
+    var docFor = document.getElementById('docFor');
+    var items = Array.prototype.slice.call(document.querySelectorAll('#docs .doc'));
+    var boxes = items.map(function(el){ return el.querySelector('input'); });
+
+    function load(){
+      try {
+        var saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+        boxes.forEach(function(b, i){ b.checked = saved.indexOf(i) > -1; });
+      } catch (e) {}
+    }
+    function save(){
+      try {
+        var on = [];
+        boxes.forEach(function(b, i){ if (b.checked) on.push(i); });
+        localStorage.setItem(KEY, JSON.stringify(on));
+      } catch (e) {}
+    }
+    function filter(){
+      var v = docFor.value;
+      items.forEach(function(el){
+        var f = el.getAttribute('data-for');
+        el.hidden = !!f && f.split(' ').indexOf(v) === -1;
+      });
+      count();
+    }
+    function count(){
+      var total = 0, done = 0;
+      items.forEach(function(el, i){
+        if (el.hidden) return;
+        if (el.closest('.doc-group').getAttribute('data-count') !== 'yes') return;
+        total++;
+        if (boxes[i].checked) done++;
+      });
+      document.getElementById('docTotal').textContent = total;
+      document.getElementById('docDone').textContent = done;
+      document.getElementById('docBar').style.width = (total ? done / total * 100 : 0) + '%';
+    }
+
+    docFor.addEventListener('change', filter);
+    boxes.forEach(function(b){ b.addEventListener('change', function(){ save(); count(); }); });
+    document.getElementById('docReset').addEventListener('click', function(){
+      boxes.forEach(function(b){ b.checked = false; });
+      save(); count();
+    });
+    document.getElementById('docPrint').addEventListener('click', function(){
+      var h = LBSheetHead('申請文件準備清單', '資金用途：' + LBEsc(docFor.options[docFor.selectedIndex].text));
+      Array.prototype.forEach.call(document.querySelectorAll('#docs .doc-group'), function(g){
+        var rows = '';
+        Array.prototype.forEach.call(g.querySelectorAll('.doc'), function(el){
+          if (el.hidden) return;
+          var cb = el.querySelector('input').checked;
+          rows += '<tr><td class="box">' + (cb ? '☑' : '☐') + '</td><td><b>' + LBEsc(el.querySelector('b').textContent) + '</b><br>' + LBEsc(el.querySelector('small').textContent) + '</td><td style="width:26%"></td></tr>';
+        });
+        h += '<h2>' + LBEsc(g.querySelector('h3').textContent) + '</h2><div class="meta">' + LBEsc(g.querySelector('.hint').textContent) + '</div>'
+          + '<table><thead><tr><th class="box">備妥</th><th>文件名稱與說明</th><th>備註（可手寫）</th></tr></thead><tbody>' + rows + '</tbody></table>';
+      });
+      h += '<p class="foot">小提醒：影本請確認清晰、文字完整；文件日期以近三個月內較為穩妥。實際需要補充的資料，以分行專員通知為準。本清單為示範網站整理，非土地銀行官方表單。</p>';
+      LBPrint(h);
+    });
+
+    load();
+    filter();
+  })();
+
+  // 信保基金專案總覽
+  (function(){
+    var DATA = [{"n": "一般貸款信用保證", "c": "basic", "one": "最常用的基本保證，補足擔保品不足", "st": "on", "src": "信保基金官網", "rows": [["適用對象", "符合信保基金保證對象的中小企業。"], ["保證額度", "依信保基金作業手冊的「企業保證融資總額度上限」；原則上同一企業最高 1.5 億元（相同負責人或互為配偶之關係企業合併計算）。"], ["保證成數", "最高 9 成。"], ["保證手續費", "間接保證（經銀行送保）年費率 0.375%～1.375%；直接保證 0.375% 以上。"], ["其他", "貸款利率依金融機構規定。"]]}, {"n": "商業本票保證信用保證", "c": "basic", "one": "配合金融機構的商業本票保證業務", "st": "on", "src": "信保基金官網（項目名稱）", "rows": [["說明", "列於信保基金「保證項目」，配合金融機構的商業本票保證業務。額度、成數與手續費請見官網要點。"]]}, {"n": "外銷貸款信用保證", "c": "basic", "one": "補足出口前後的資金缺口", "st": "on", "src": "銀行說明", "rows": [["資金用途", "解決出口前與出口後可能出現的資金缺口。"], ["保證成數", "最高 9 成。"], ["其他", "外銷企業另可留意「外銷貸款優惠保證加碼」，見「外銷與匯率」分類。"]]}, {"n": "購料週轉融資信用保證", "c": "basic", "one": "採購原物料所需的週轉資金", "st": "on", "src": "信保基金官網", "rows": [["資金用途", "購料週轉所需資金。"], ["保證手續費", "依個案風險核定，年費率 0.375%～1.375%。"]]}, {"n": "履約保證信用保證", "c": "basic", "one": "承接合約時，由銀行出具保證的信用保證", "st": "chk", "src": "作業手冊（版本較舊）", "rows": [["說明", "例如預付款保證：企業收到買方預先支付的部分合約（工程或買賣）價款，依買方要求由金融機構出具保證，信保基金再就該保證提供信用保證。"], ["其他", "此項依作業手冊整理，版本較舊，最新規定請見官網。"]]}, {"n": "進口稅捐記帳保證", "c": "basic", "one": "銀行列為信保基金保證項目之一", "st": "on", "src": "銀行說明", "rows": [["說明", "銀行說明列為信保基金保證項目。額度與條件請洽承貸銀行或查官網。"]]}, {"n": "批次信用保證", "c": "basic", "one": "銀行以批次方式送保的保證措施", "st": "chk", "src": "信保基金官網、簡報", "rows": [["保證額度", "一般批次信用保證：同一企業 2 億元。"], ["保證成數", "最高 10 成（113 年批號）。"], ["保證手續費", "年費率 0.25%（113 年批號）。"], ["其他", "批次保證條件逐年調整，請以信保基金最新通函為準。"]]}, {"n": "直接信用保證", "c": "basic", "one": "企業可直接向信保基金申請保證", "st": "on", "src": "信保基金官網、銀行說明", "rows": [["說明", "官網設有「直接保證-小額案件」「新創企業及直接保證」「小額直保」專區；部分產業可自行向信保基金取得直接保證。"], ["保證手續費", "直接保證 0.375% 以上；促進企業創新直接保證方案為 0.375%。"]]}, {"n": "中小微企業多元發展專案貸款", "c": "special", "one": "數位轉型、淨零轉型、通路發展與關稅衝擊的主力專案", "st": "chk", "src": "信保基金官網、政府公告、媒體", "rows": [["資金用途", "協助中小微企業進行數位轉型、淨零轉型、通路發展、優化經營效能；並協助受美國加徵關稅影響的中小微企業穩定營運、加速轉型。"], ["貸款額度", "每家事業最高 3,500 萬元；購置機器設備以不超過計畫經費 8 成為原則。"], ["貸款期限", "週轉性支出最長 6 年；購置機器、設備最長 7 年。"], ["保證成數", "100 萬元以內一律 10 成；逾 100 萬元最低 9 成。"], ["利率與手續費", "利率最高為中華郵政二年期定期儲金機動利率加 0.5%；保證手續費年費率 0.1%（依政府公告之專案貸款要點）。"], ["擴大適用", "2025 年 8 月起，因美國關稅影響且營收減少達 10% 的企業，不再受員工 30 人以下限制（媒體報導）。"], ["動撥期限", "貸款額度須於 117 年 12 月 31 日前動撥完畢（依要點）。"], ["土地銀行", "土地銀行已推出同名專案貸款（2026 年 3 月媒體報導）。"]]}, {"n": "中小微企業多元發展批次信用保證措施", "c": "special", "one": "多元發展專案的批次送保版本", "st": "chk", "src": "信保基金官網", "rows": [["保證額度", "與專案貸款合併計算：單一企業 3,500 萬元、同一企業 1 億元。"], ["其他", "以批次方式送保，細節請見官網。"]]}, {"n": "中小企業千億保專案", "c": "special", "one": "協助新創、微型等中小企業取得融資", "st": "chk", "src": "信保基金簡報、媒體", "rows": [["適用對象", "符合保證對象之中小企業，實收資本額 3,000 萬元以下者。"], ["小額貸款擴大保證", "單一企業最高 600 萬元（113 年）；保證成數最高 9.5 成，最低以 8 成為原則。"], ["批次擴大保證", "同一金融機構對單一企業最高 600 萬元；先行交付備償款項計提率提高為 3.5%；手續費年費率一律調降 0.1 個百分點。"], ["辦理期間", "此專案常延長。2026 年民間整理稱延長至 2026 年 12 月 31 日，請以官網為準。"]]}, {"n": "國家發展優惠保證措施", "c": "special", "one": "優良事蹟企業可享優惠成數與外加額度", "st": "chk", "src": "信保基金簡報（2024）", "rows": [["說明", "為協助中小企業取得營運所需資金，提供優惠保證成數及外加保證額度。"], ["保證額度", "外加同一企業 1 億元。"], ["保證成數", "最高 9.5 成。"], ["適用對象", "包含營運具優良事蹟、經金融機構或信保基金核認屬實的企業等，詳細條件請見官網。"]]}, {"n": "中小企業加速投資貸款信用保證", "c": "special", "one": "新（擴）建廠房、增添機器設備的資本性支出", "st": "chk", "src": "信保基金簡報（2022）", "rows": [["適用對象", "使用統一發票且符合保證對象之中小企業。"], ["資金用途", "新（擴）建廠房、增添機器或設備等資本性支出（含得資本化之修繕費用）。"], ["融資額度", "以投資所需總金額 80% 為限，單一企業最高 1 億元，不受企業保證融資總額度上限限制。"], ["保證成數", "最高 9.5 成；在工業區、產業園區、科學園區新（擴）建廠房者最低 8 成。"], ["其他", "資料來自 2022 年簡報，辦理期限請查官網。"]]}, {"n": "鼓勵中小企業為員工加薪之額外額度保證措施", "c": "special", "one": "為員工加薪的企業，可享外加保證額度", "st": "chk", "src": "信保基金官網", "rows": [["保證額度", "同一企業外加 3,500 萬元。"], ["其他", "適用條件請見官網或洽承貸銀行。"]]}, {"n": "協助中小型事業疫後振興專案貸款", "c": "special", "one": "官網「其他專案貸款」列名，條件依要點", "st": "chk", "src": "信保基金業務規章（112 年版）", "rows": [["資金用途", "週轉性或資本性支出；可用於償還防疫千億保及央行專案融通送保案件的借新還舊。"], ["貸款額度", "依對象分兩類，擇一申請：每一申貸事業最高 3,500 萬元，或最高 400 萬元。"], ["保證成數", "最低 8 成；100 萬元額度內一律 10 成。"], ["利率", "最高依郵政儲金二年期定期儲金機動利率加 0.5%。"], ["其他", "資料來自 112 年版規章，是否仍受理請查官網。"]]}, {"n": "青創新創暨微型事業相挺獎、信保金質獎、批保卓越獎措施", "c": "special", "one": "官網列出的三項外加額度措施", "st": "chk", "src": "信保基金官網（熱門問答）", "rows": [["青創、新創暨微型事業相挺獎", "同一金融機構對同一企業 1,000 萬元。"], ["信保金質獎", "同一金融機構對同一企業 5,000 萬元／3,000 萬元。"], ["批保卓越獎", "同一金融機構對同一企業 5,000 萬元。"], ["其他", "適用條件請見官網。"]]}, {"n": "外銷貸款優惠保證加碼信用保證", "c": "export", "one": "外銷企業的高額度、低手續費保證", "st": "chk", "src": "信保基金官網最新消息", "rows": [["中小企業", "每一企業最高 6,000 萬元，同一企業最高 1.5 億元。"], ["非中小企業", "每一企業最高 1 億元，同一企業最高 5 億元。"], ["保證手續費", "提供高保證成數、低手續費率；中小企業前 2 年手續費得全額免收。"], ["其他", "完整送保規定以信保基金通函為準。"]]}, {"n": "外銷貸款優惠信用保證方案（貿易署與信保基金合辦）", "c": "export", "one": "拓展出口的手續費優惠與外加額度", "st": "chk", "src": "政府公告（較舊）", "rows": [["優惠內容", "保證手續費最高全額減免；額外增加單一廠商保證額度：新南向國家 1 億元，其他國家 6,000 萬元。"], ["適用對象", "保證對象之中小企業且票、債信正常；依法登記的出進口廠商（無欠繳推廣貿易服務費，前一年未受暫停出進口處分）。"], ["其他", "此頁資料較舊，現行方案請以信保基金與貿易署公告為準。"]]}, {"n": "協助企業取得避險額度信用保證措施", "c": "export", "one": "鎖定出口利潤的匯率避險保證", "st": "exp", "src": "銀行公告、媒體", "rows": [["資金用途", "外銷貸款的避險需求（鎖定出口利潤）。"], ["保證額度", "同一企業避險（名目本金）額度最高 6,000 萬元，不受企業保證融資總額度上限限制。"], ["保證成數", "10 成；免收保證手續費。"], ["適用對象", "依出進口廠商登記辦法登記，且已申請外銷貸款保證的中小企業。"], ["受理期限", "銀行公告受理至 2025 年 12 月 31 日，是否延長請查官網。"]]}, {"n": "協助中小企業赴新南向國家、有邦交國家投資融資信用保證", "c": "export", "one": "海外投資所需資金的保證", "st": "chk", "src": "信保基金業務規章", "rows": [["說明", "協助中小企業赴新南向國家或有邦交國家投資所需的融資。"], ["保證手續費", "赴新南向國家為固定費率 0.1%；赴有邦交國家則依保證成數擇定費率。"], ["其他", "細節與受理期限請見官網。"]]}, {"n": "青年創業及啟動金貸款（青年創業貸款信用保證）", "c": "startup", "one": "青年創業的政策貸款，擔保品不足可搭配信保", "st": "chk", "src": "民間整理（2026）、官網專區", "rows": [["資金用途與額度", "準備金及開辦費用最高 200 萬元（設立 8 個月內）；週轉性支出最高 600 萬元；資本性支出最高 1,200 萬元。"], ["貸款期限", "準備金、週轉性支出最長 6 年；機器設備最長 7 年；廠房最長 20 年。"], ["利率", "最高按中華郵政二年期定期儲金機動利率加 0.575%。"], ["保證", "擔保品不足時可申請信保基金保證；貸款 100 萬元以下無需保證人。"], ["其他", "設立年限、負責人年齡與創業課程等資格，請以經濟部公告為準。以上為民間整理，數字可能調整。"]]}, {"n": "微型創業鳳凰貸款", "c": "startup", "one": "女性、中高齡與離島居民創業的免擔保貸款", "st": "chk", "src": "勞動部、民間整理", "rows": [["適用對象", "女性、中高齡國民及設籍離島居民（勞動部）。"], ["資金用途", "購置或租用廠房、營業場所、機器、設備，或營運週轉金。"], ["貸款額度", "最高 200 萬元；免辦商業登記的小規模商業最高 50 萬元。"], ["保證", "免保證人與擔保品，政府提供 9.5 成信用保證；借款人負擔 0.375% 年費率保證手續費（民間整理）。"], ["利率與期限", "郵政儲金二年期定期儲金機動利率加 0.575%，最長 7 年；前 2 年利息由勞動部補貼（民間整理）。"]]}, {"n": "企業小頭家貸款信用保證", "c": "startup", "one": "員工 10 人以下小事業的週轉與設備貸款", "st": "chk", "src": "信保基金要點", "rows": [["適用對象", "依法辦理公司、有限合夥、商業或稅籍登記，僱用員工人數十人以下的營利事業。"], ["貸款額度", "週轉性支出每一事業最高 500 萬元（受災事業不受限）；資本性支出以不超過計畫經費 8 成為原則。"], ["保證成數", "最高 9 成；其他授信額度在 500 萬元以下者，原則不低於 8 成。設立未滿 5 年的新創事業、提具傳承創新計畫書並經銀行認可的事業、受災復舊貸款，一律 9 成。"], ["手續費與利率", "受災復舊貸款免收保證手續費；利率最高依郵局二年期定期儲金機動利率加 1.5%（一律九成保證者）。"], ["其他", "要點為較早核定的版本，請確認最新修訂。"]]}, {"n": "中小企業災害復舊專案貸款信用保證", "c": "disaster", "one": "受災企業復工的資金協助，送保免手續費", "st": "chk", "src": "信保基金規定、銀行說明", "rows": [["資金用途", "災後修建廠房、購置機器設備與原物料，或營運週轉。"], ["保證成數", "最高 9 成。"], ["保證手續費", "受災復舊貸款免收。"], ["申請提醒", "需先向縣市政府、公所、稅捐機關等單位申請受災證明；受災日次日起 1 年內可申請（銀行說明）。"]]}, {"n": "低碳化智慧化轉型發展與納管工廠及特定工廠基礎設施優化專案貸款", "c": "disaster", "one": "中小企業低碳、智慧轉型與工廠基礎設施優化", "st": "exp", "src": "信保基金官網（熱門問答）", "rows": [["保證額度", "外加同一企業 1 億元。"], ["辦理期限", "官網載明截止日為 2025 年 12 月 31 日，是否延長請查官網。"]]}];
+    var NAMES = [{"t": "相對保證專案貸款（官網列出，至少 20 項）", "items": ["微型創業鳳凰貸款", "就業保險失業者創業貸款", "失業中高齡者及高齡者創業貸款", "中小型運動產業貸款", "離島永續發展優惠貸款", "受災旅宿業融資", "原住民族企業貸款", "加強文化創意產業升級轉型貸款", "應回收廢棄物回收處理業專案貸款", "土壤及地下水污染改善貸款", "節能服務業專案貸款", "事業廢水處理綠色轉型專案貸款", "基隆市中小企業圓夢貸款", "臺北市中小企業融資貸款", "臺北市青年創業融資貸款", "新北市中小企業融資貸款", "新北市創新創業融資貸款", "新北市原住民創業及所營事業融資貸款", "桃園市青年創業及中小企業融資貸款", "新竹市中小企業及個人便利貸款"]}, {"t": "特別保證措施（官網首頁列名）", "items": ["鼓勵中小企業為員工加薪之額外額度保證措施", "中小微多元發展批次信用保證措施", "信合社小微企業保證專案", "新創企業暨無形資產融資信用保證措施", "中小企業安興專案", "中小企業千億保專案", "國家發展優惠措施", "外銷優惠方案", "投資台灣措施", "金質獎措施"]}, {"t": "政策性貸款信用保證（官網列名，多為較早期專案）", "items": ["促進東部地區發展優惠貸款", "促進民間參與公共建設優惠貸款", "機器設備輸出（第六期）貸款", "機器設備輸出（第七期）貸款", "機器設備升級（第四期）貸款", "歡迎臺商回臺投資專案貸款", "中小企業創新發展專案貸款", "推動航空工業發展優惠貸款", "台商回台投資專案融資貸款", "獎勵觀光產業升級優惠貸款"]}, {"t": "其他專案貸款（官網列名）", "items": ["協助特定工廠合法化融資貸款信用保證", "知識經濟企業融資信用保證", "青年海外生活體驗貸款", "補助留學生就學貸款", "高級中學以上學校學生就學貸款", "臺北市青年留學生就學貸款"]}];
+    var CATS = [['all','全部'],['basic','企業一般保證'],['special','專案貸款與特別措施'],['export','外銷與匯率'],['startup','創業與小微'],['disaster','災害與轉型'],['names','其他專案名單']];
+    var ST = {on:['tag','常設項目'], chk:['tag check','專案：請確認受理期限'], exp:['tag warn','原定期限已過：請確認是否延長']};
+    var cat = 'all';
+    var chipsEl = document.getElementById('smegChips');
+    var grid = document.getElementById('smegGrid');
+    var search = document.getElementById('smegSearch');
+    var countEl = document.getElementById('smegCount');
+    var emptyEl = document.getElementById('smegEmpty');
+    var namesWrap = document.getElementById('smegNames');
+    var nameBox = document.getElementById('smegNameBox');
+
+    var ch = '';
+    CATS.forEach(function(c){ ch += '<button type="button" class="chipbtn" data-cat="' + c[0] + '" aria-pressed="' + (c[0] === 'all') + '">' + c[1] + '</button>'; });
+    chipsEl.innerHTML = ch;
+
+    var gh = '';
+    DATA.forEach(function(d){
+      var st = ST[d.st];
+      gh += '<details class="prog" data-cat="' + d.c + '"><summary><span><span class="p-name">' + d.n + '</span><span class="p-one">' + d.one + '</span>'
+        + '<span class="tags"><span class="' + st[0] + '">' + st[1] + '</span><span class="tag src">資料：' + d.src + '</span></span></span></summary>'
+        + '<div class="p-body"><dl>';
+      d.rows.forEach(function(r){ gh += '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>'; });
+      gh += '</dl></div></details>';
+    });
+    grid.innerHTML = gh;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('details.prog'));
+
+    var nh = '';
+    NAMES.forEach(function(g){
+      nh += '<details class="names"><summary>' + g.t + '（' + g.items.length + ' 項）</summary><div class="chip-list">';
+      g.items.forEach(function(i){ nh += '<span class="nm">' + i + '</span>'; });
+      nh += '</div></details>';
+    });
+    nameBox.innerHTML = nh;
+    var lists = Array.prototype.slice.call(nameBox.querySelectorAll('details.names'));
+
+    function apply(){
+      var q = search.value.trim().toLowerCase();
+      var shown = 0;
+      cards.forEach(function(el){
+        var okCat = cat === 'all' || cat === el.getAttribute('data-cat');
+        var okQ = !q || el.textContent.toLowerCase().indexOf(q) > -1;
+        var show = cat !== 'names' && okCat && okQ;
+        el.hidden = !show;
+        if (show) shown++;
+      });
+      var showNames = cat === 'all' || cat === 'names';
+      namesWrap.style.display = showNames ? '' : 'none';
+      var nameHits = 0;
+      lists.forEach(function(det){
+        var any = 0;
+        Array.prototype.forEach.call(det.querySelectorAll('.nm'), function(n){
+          var hit = !q || n.textContent.toLowerCase().indexOf(q) > -1;
+          n.hidden = !hit;
+          if (hit) any++;
+        });
+        det.hidden = any === 0;
+        if (q && any) det.open = true;
+        if (!q) det.open = false;
+        nameHits += any;
+      });
+      var total = shown + (showNames ? nameHits : 0);
+      countEl.textContent = cat === 'names' ? '共 ' + nameHits + ' 個專案名稱'
+        : '顯示 ' + shown + ' 個專案說明' + (showNames ? '，另有 ' + nameHits + ' 個專案名稱列在下方' : '');
+      emptyEl.style.display = total === 0 ? 'block' : 'none';
+    }
+
+    chipsEl.addEventListener('click', function(e){
+      var b = e.target.closest('.chipbtn');
+      if (!b) return;
+      cat = b.getAttribute('data-cat');
+      Array.prototype.forEach.call(chipsEl.querySelectorAll('.chipbtn'), function(x){
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      apply();
+    });
+    search.addEventListener('input', apply);
+    apply();
+
+    // 從其他區塊跳到指定專案並展開
+    window.LBOpenProg = function(name){
+      cat = 'all';
+      search.value = '';
+      Array.prototype.forEach.call(chipsEl.querySelectorAll('.chipbtn'), function(x){
+        x.setAttribute('aria-pressed', x.getAttribute('data-cat') === 'all' ? 'true' : 'false');
+      });
+      apply();
+      var target = null;
+      cards.forEach(function(c){ if (c.querySelector('.p-name').textContent === name) target = c; });
+      if (target) {
+        target.open = true;
+        target.scrollIntoView({behavior:'smooth', block:'center'});
+      } else {
+        document.getElementById('smeg').scrollIntoView({behavior:'smooth'});
+      }
+    };
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[data-prog]');
+      if (!a) return;
+      e.preventDefault();
+      if (window.LBClosePlan) window.LBClosePlan();
+      window.LBOpenProg(a.getAttribute('data-prog'));
+    });
+  })();
+
+  // 財務健檢：步驟卡片 + 彈出視窗 + 即時計算
+  (function(){
+    var STEPS = [
+      {title:'付款能力', ask:'公司付得出錢嗎？', intro:'看公司手上的錢，能不能應付一年內要付的帳款與還款。', fields:[
+        {id:'ca', short:'流動資產', q:'一年內能變成現金的資產有多少？',
+         meaning:'流動資產：現金、存款、應收帳款、存貨等，一年內可以收回或變現的資產合計。',
+         where:'資產負債表「流動資產合計」。'},
+        {id:'cl', short:'流動負債', q:'一年內要還的錢有多少？',
+         meaning:'流動負債：應付帳款、短期借款、一年內到期的長期借款等，一年內必須付出的金額合計。',
+         where:'資產負債表「流動負債合計」。'},
+        {id:'cf', short:'營業活動現金流量', q:'本業一年實際帶進多少現金？', optional:true,
+         meaning:'營業活動現金流量：公司做生意實際收進與付出的現金差額，流出請填負數。',
+         where:'現金流量表「營業活動之淨現金流入（流出）」；沒有編現金流量表可以略過。'}
+      ]},
+      {title:'獲利情況', ask:'公司賺不賺錢？', intro:'看公司一年賣了多少、賺了多少，是不是有穩定獲利。', fields:[
+        {id:'rev', short:'營業收入', q:'一年賣出多少錢？',
+         meaning:'取同一年度營收金額。',
+         where:'同一年度損益表營業收入；申報資料可供核對。'},
+        {id:'cogs', short:'營業成本', q:'賣出這些東西，成本花了多少？',
+         meaning:'營業成本：進貨、原料、直接人工等，為了賣出商品或服務所付的成本，要和營收取同一年度。',
+         where:'同一年度損益表「營業成本」；服務業可能稱為「服務成本」。'},
+        {id:'pre', short:'稅前淨利', q:'扣掉所有費用後，稅前賺（賠）多少？',
+         meaning:'稅前淨利：營收扣掉成本、各項費用與利息後，繳稅前的結果，虧損請填負數。',
+         where:'同一年度損益表「稅前淨利（淨損）」；營利事業所得稅結算申報書可供核對。'}
+      ]},
+      {title:'負債與還款', ask:'欠多少錢、還得起嗎？', intro:'看公司欠多少錢，以及獲利夠不夠付利息。', fields:[
+        {id:'debt', short:'負債總額', q:'公司總共欠多少錢？',
+         meaning:'負債總額：短期與長期借款、應付款項等所有欠款的合計。',
+         where:'資產負債表「負債合計」。'},
+        {id:'asset', short:'資產總額', q:'公司總共擁有多少資產？',
+         meaning:'資產總額：現金、存貨、設備、不動產等公司擁有的資產總和，用來看欠款占多少。',
+         where:'資產負債表「資產總計」。'},
+        {id:'int', short:'利息費用', q:'一年付了多少利息？',
+         meaning:'利息費用：借款一年實際負擔的利息，用來看獲利夠不夠付利息，沒有借款請填 0。',
+         where:'損益表「財務成本」或「利息費用」；銀行貸款的利息單、對帳單可核對。'}
+      ]}
+    ];
+    var SHORT = {}; STEPS.forEach(function(st){ st.fields.forEach(function(f){ SHORT[f.id] = f.short; }); });
+
+    var METRICS = [
+      {step:0, name:'流動比率', needs:['ca','cl'], formula:'流動資產 ÷ 流動負債',
+       bad:function(d){ return d.cl <= 0 ? '流動負債需要大於 0' : ''; },
+       calc:function(d){ return d.ca * 100 / d.cl; },
+       fmt:function(v){ return v.toFixed(0) + '%'; },
+       rate:function(v){ return v >= 150 ? 'good' : v >= 100 ? 'watch' : 'warn'; },
+       say:{good:'短期資金充裕，一年內到期的債務有足夠資產可以應付。',
+            watch:'短期資金勉強足夠，客戶延遲付款時可能吃緊。',
+            warn:'流動資產低於流動負債，短期週轉壓力較大。'},
+       next:'短期週轉有缺口時，可和專員討論營運週轉類專案，並整理應收、應付帳款明細。'},
+      {step:0, name:'營業活動現金流量', needs:['cf'], optional:true, formula:'現金流量表的營業活動淨現金流入（流出）',
+       bad:function(){ return ''; },
+       calc:function(d){ return d.cf; },
+       fmt:function(v){ return v.toLocaleString('zh-TW') + ' 萬元'; },
+       rate:function(v){ return v > 0 ? 'good' : 'warn'; },
+       say:{good:'本業營運帶進現金，是還款能力的重要依據。',
+            warn:'本業營運目前沒有帶進現金，例如貨款尚未收回或庫存增加。'},
+       next:'營業現金流為負時，說明原因（例如大型訂單尚未收款）與預計回收時程。'},
+      {step:1, name:'毛利率', needs:['rev','cogs'], formula:'（營業收入 − 營業成本）÷ 營業收入',
+       bad:function(d){ return d.rev <= 0 ? '營業收入需要大於 0' : ''; },
+       calc:function(d){ return (d.rev - d.cogs) * 100 / d.rev; },
+       fmt:function(v){ return v.toFixed(1) + '%'; },
+       rate:function(v){ return v >= 20 ? 'good' : v >= 10 ? 'watch' : 'warn'; },
+       say:{good:'每一塊錢的營收，扣掉成本後還有不錯的空間。',
+            watch:'毛利空間普通，成本上漲時獲利容易被壓縮。',
+            warn:'毛利偏低，成本稍有波動就可能影響獲利。各行業差異大，請對照同業。'},
+       next:'毛利偏低時，準備一份成本結構說明（例如原物料波動），讓專員了解原因。'},
+      {step:1, name:'稅前淨利率', needs:['pre','rev'], formula:'稅前淨利 ÷ 營業收入',
+       bad:function(d){ return d.rev <= 0 ? '營業收入需要大於 0' : ''; },
+       calc:function(d){ return d.pre * 100 / d.rev; },
+       fmt:function(v){ return v.toFixed(1) + '%'; },
+       rate:function(v){ return v >= 5 ? 'good' : v >= 0 ? 'watch' : 'warn'; },
+       say:{good:'各項費用扣完後，仍有穩定獲利。',
+            watch:'有獲利但很薄，需要留意費用控管。',
+            warn:'目前處於虧損，專員會想了解虧損原因與改善計畫。'},
+       next:'獲利偏弱時，附上訂單資料或營運改善計畫，說明還款來源。'},
+      {step:2, name:'負債比率', needs:['debt','asset'], formula:'負債總額 ÷ 資產總額',
+       bad:function(d){ return d.asset <= 0 ? '資產總額需要大於 0' : ''; },
+       calc:function(d){ return d.debt * 100 / d.asset; },
+       fmt:function(v){ return v.toFixed(0) + '%'; },
+       rate:function(v){ return v <= 50 ? 'good' : v <= 70 ? 'watch' : 'warn'; },
+       say:{good:'資產中由借款與負債支應的比例不高，財務結構穩健。',
+            watch:'負債占資產一半以上，再增加借款前要先評估還款負擔。',
+            warn:'負債占資產比例偏高，新增借款的空間可能有限。'},
+       next:'新增借款前，請專員一起評估整體負債與還款期程，必要時規劃整併。'},
+      {step:2, name:'利息保障倍數', needs:['pre','int'], formula:'（稅前淨利 + 利息費用）÷ 利息費用',
+       bad:function(d){ return d.int < 0 ? '利息費用不會是負數，沒有借款請填 0' : ''; },
+       calc:function(d){ return d.int > 0 ? (d.pre + d.int) / d.int : Infinity; },
+       fmt:function(v){ return v === Infinity ? '無利息費用' : v.toFixed(1) + ' 倍'; },
+       rate:function(v){ return v >= 3 ? 'good' : v >= 1.5 ? 'watch' : 'warn'; },
+       say:{good:'獲利足以支付利息，利息負擔在可控範圍。',
+            watch:'獲利勉強支付利息，利率或營收變動時會有壓力。',
+            warn:'獲利不足以支付利息，借款負擔已偏重。'},
+       next:'利息負擔偏重時，先做好未來一年的現金流預估，避免再增加壓力。'}
+    ];
+    var LABEL = {good:'良好', watch:'留意', warn:'需改善'};
+
+    var cardsEl = document.getElementById('ckCards');
+    var resultEl = document.getElementById('ckResult');
+    var modal = document.getElementById('ckModal');
+    var mBody = document.getElementById('mBody');
+    var mSteps = document.getElementById('mSteps');
+    var mPrev = document.getElementById('mPrev');
+    var mNext = document.getElementById('mNext');
+    var mMsg = document.getElementById('mMsg');
+    var cur = 0, lastFocus = null;
+
+    function field(id){ return document.getElementById('ck-' + id); }
+
+    // ---- 建立卡片與視窗內容 ----
+    var ch = '';
+    STEPS.forEach(function(st, i){
+      ch += '<button type="button" class="step-card" data-step="' + i + '" aria-haspopup="dialog">'
+        + '<div class="top-row"><span class="num">' + (i+1) + '</span><span class="chip"></span></div>'
+        + '<h3>STEP' + (i+1) + '　' + st.title + '</h3><p class="q-line">' + st.ask + '</p>'
+        + '<div class="pills"></div><span class="go">填寫並即時計算</span></button>';
+    });
+    cardsEl.innerHTML = ch;
+    var cards = Array.prototype.slice.call(cardsEl.querySelectorAll('.step-card'));
+
+    var bh = '', sh = '';
+    STEPS.forEach(function(st, i){
+      sh += '<button type="button" class="m-step" data-step="' + i + '">STEP' + (i+1) + ' ' + st.title + '</button>';
+      bh += '<div class="step-panel" data-step="' + i + '" hidden>'
+        + '<div class="step-intro"><h3 id="' + (i === 0 ? 'mTitle' : 'mTitle' + i) + '">STEP' + (i+1) + '　' + st.title + '</h3><p>' + st.intro + '金額單位：萬元。</p></div><div class="qs">';
+      st.fields.forEach(function(f){
+        bh += '<div class="q"><div><h4 id="q-' + f.id + '">' + f.q + (f.optional ? '<em>（選填）</em>' : '') + '</h4>'
+          + '<div class="info"><div><b>資料意義</b><span>' + f.meaning + '</span></div>'
+          + '<div><b>資料可從這裡找</b><span>' + f.where + '</span></div></div></div>'
+          + '<div class="unit"><input type="number" id="ck-' + f.id + '" aria-labelledby="q-' + f.id + '" inputmode="decimal" step="any"><i>萬元</i></div></div>';
+      });
+      bh += '</div><div class="live"><h4>即時計算結果</h4><p class="sub">數字輸入後，這裡立刻更新。</p><ul class="metrics" id="live-' + i + '"></ul></div></div>';
+    });
+    mSteps.innerHTML = sh;
+    mBody.innerHTML = bh;
+    var panels = Array.prototype.slice.call(mBody.querySelectorAll('.step-panel'));
+    var mStepBtns = Array.prototype.slice.call(mSteps.querySelectorAll('.m-step'));
+
+    // ---- 讀取與計算 ----
+    function readAll(){
+      var d = {};
+      STEPS.forEach(function(st){ st.fields.forEach(function(f){
+        var raw = field(f.id).value.trim(), n = parseFloat(raw);
+        d[f.id] = (raw === '' || isNaN(n)) ? null : n;
+      }); });
+      return d;
+    }
+    function evalMetric(m, d){
+      var missing = m.needs.filter(function(k){ return d[k] === null; });
+      if (missing.length) return {state:'pend', missing:missing};
+      var b = m.bad(d);
+      if (b) return {state:'bad', msg:b};
+      var v = m.calc(d), lv = m.rate(v);
+      return {state:'ok', text:m.fmt(v), level:lv, say:m.say[lv]};
+    }
+    function stepStatus(i, d){
+      var req = STEPS[i].fields.filter(function(f){ return !f.optional; });
+      var filled = req.filter(function(f){ return d[f.id] !== null; }).length;
+      var bad = METRICS.some(function(m){ return m.step === i && m.needs.every(function(k){ return d[k] !== null; }) && m.bad(d); });
+      return {filled:filled, total:req.length, done: filled === req.length && !bad};
+    }
+
+    // ---- 畫面更新 ----
+    function metricHTML(m, r, showFormula){
+      if (r.state === 'pend') {
+        if (m.optional) return '<li class="metric pend"><header><span class="nm">' + m.name + '</span></header><p>選填：有填才會計算。</p></li>';
+        return '<li class="metric pend"><header><span class="nm">' + m.name + '</span></header><p>還需要「' + r.missing.map(function(k){ return SHORT[k]; }).join('、') + '」才能計算。</p></li>';
+      }
+      if (r.state === 'bad') return '<li class="metric bad"><header><span class="nm">' + m.name + '</span></header><p>' + r.msg + '，請檢查數字。</p></li>';
+      return '<li class="metric ' + r.level + '"><header><div><span class="nm">' + m.name + '</span><span class="val">' + r.text + '</span></div><span class="badge">' + LABEL[r.level] + '</span></header><p>' + r.say + '</p>'
+        + (showFormula ? '<p class="fm">計算方式：' + m.formula + '</p>' : '') + '</li>';
+    }
+
+    function refresh(){
+      var d = readAll(), allDone = true, rows = [];
+      STEPS.forEach(function(st, i){
+        var ss = stepStatus(i, d);
+        if (!ss.done) allDone = false;
+        var card = cards[i];
+        card.classList.toggle('done', ss.done);
+        card.classList.toggle('part', !ss.done && ss.filled > 0);
+        card.querySelector('.chip').textContent = ss.done ? '已完成' : ss.filled > 0 ? '已填 ' + ss.filled + '/' + ss.total + ' 欄' : '尚未填寫';
+        var pills = '', live = '';
+        METRICS.forEach(function(m){
+          if (m.step !== i) return;
+          var r = evalMetric(m, d);
+          live += metricHTML(m, r, true);
+          if (r.state === 'ok') {
+            pills += '<div class="pill ' + r.level + '"><span>' + m.name + ' ' + r.text + '</span><b>' + LABEL[r.level] + '</b></div>';
+            rows.push({step:i, m:m, r:r});
+          }
+        });
+        card.querySelector('.pills').innerHTML = pills;
+        document.getElementById('live-' + i).innerHTML = live;
+      });
+
+      if (!allDone) {
+        resultEl.innerHTML = '<div class="ck-wait">完成三個步驟的必填欄位後，這裡會顯示整體健檢結果與建議。</div>';
+        return;
+      }
+      var score = 0, good = 0;
+      rows.forEach(function(x){
+        score += x.r.level === 'good' ? 2 : x.r.level === 'watch' ? 1 : 0;
+        if (x.r.level === 'good') good++;
+      });
+      var ratio = score / (rows.length * 2), head, sub;
+      if (ratio >= 0.75) { head = '整體體質良好'; sub = '多數指標在一般認為穩健的範圍內。'; }
+      else if (ratio >= 0.4) { head = '部分指標需要留意'; sub = '先看標示「留意」「需改善」的項目，申請前做好說明。'; }
+      else { head = '建議先與專員討論改善方向'; sub = '多項指標偏弱，專員可以協助評估適合的做法。'; }
+
+      var h = '<div class="ck-score"><b>' + head + '</b><p>' + rows.length + ' 項指標中，' + good + ' 項良好。' + sub + '</p></div>';
+      STEPS.forEach(function(st, i){
+        var part = rows.filter(function(x){ return x.step === i; });
+        if (!part.length) return;
+        h += '<div class="grp"><h3>STEP' + (i+1) + '　' + st.title + '</h3><ul class="metrics">';
+        part.forEach(function(x){ h += metricHTML(x.m, x.r, true); });
+        h += '</ul></div>';
+      });
+      var nexts = rows.filter(function(x){ return x.r.level !== 'good'; });
+      h += '<div class="ck-next"><h3>接下來可以怎麼做</h3><ul>';
+      if (!nexts.length) h += '<li>整體體質不錯，可以直接預約專員，討論適合的專案與額度。</li>';
+      else nexts.forEach(function(x){ h += '<li>' + x.m.next + '</li>'; });
+      h += '</ul><a class="btn btn-primary" href="#contact">找專人討論結果</a> <a class="btn btn-ghost" href="#docs" style="margin-left:8px">準備申請文件</a></div>';
+      resultEl.innerHTML = h;
+    }
+
+    // ---- 彈出視窗 ----
+    function showStep(i){
+      cur = i;
+      panels.forEach(function(p, n){ p.hidden = n !== i; });
+      mStepBtns.forEach(function(b, n){
+        if (n === i) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+      });
+      mPrev.style.visibility = i === 0 ? 'hidden' : 'visible';
+      mNext.textContent = i < STEPS.length - 1 ? '下一步：' + STEPS[i+1].title : '完成，看整體結果';
+      mMsg.style.display = 'none';
+      mBody.scrollTop = 0;
+    }
+    function openModal(i){
+      lastFocus = document.activeElement;
+      modal.hidden = false;
+      document.body.classList.add('modal-open');
+      showStep(i);
+      var first = panels[i].querySelector('input');
+      if (first) first.focus();
+    }
+    function closeModal(){
+      modal.hidden = true;
+      document.body.classList.remove('modal-open');
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    cards.forEach(function(c){ c.addEventListener('click', function(){ openModal(Number(c.getAttribute('data-step'))); }); });
+    mStepBtns.forEach(function(b){ b.addEventListener('click', function(){ showStep(Number(b.getAttribute('data-step'))); }); });
+    document.getElementById('mClose').addEventListener('click', closeModal);
+    modal.addEventListener('mousedown', function(e){ if (e.target === modal) closeModal(); });
+    mPrev.addEventListener('click', function(){ if (cur > 0) showStep(cur - 1); });
+    mNext.addEventListener('click', function(){
+      if (cur < STEPS.length - 1) { showStep(cur + 1); return; }
+      var d = readAll(), todo = [];
+      STEPS.forEach(function(st, i){ if (!stepStatus(i, d).done) todo.push('STEP' + (i+1)); });
+      if (todo.length) {
+        mMsg.textContent = todo.join('、') + ' 還有必填欄位沒填或數字有誤，請點上方步驟回去補。';
+        mMsg.style.display = 'block';
+        return;
+      }
+      closeModal();
+      resultEl.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+    document.addEventListener('keydown', function(e){
+      if (modal.hidden) return;
+      if (e.key === 'Escape') { closeModal(); return; }
+      if (e.key === 'Tab') {
+        var f = Array.prototype.slice.call(modal.querySelectorAll('button,input,[href]')).filter(function(x){
+          return x.offsetParent !== null && getComputedStyle(x).visibility !== 'hidden';
+        });
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+    mBody.addEventListener('input', refresh);
+
+    document.getElementById('ckSample').addEventListener('click', function(){
+      var sample = {ca:3500, cl:2800, cf:450, rev:12000, cogs:9000, pre:600, debt:5200, asset:8000, int:80};
+      Object.keys(sample).forEach(function(k){ field(k).value = sample[k]; });
+      refresh();
+    });
+    document.getElementById('ckClear').addEventListener('click', function(){
+      STEPS.forEach(function(st){ st.fields.forEach(function(f){ field(f.id).value = ''; }); });
+      refresh();
+    });
+
+    document.getElementById('ckPrint').addEventListener('click', function(){
+      var d = readAll();
+      var h = LBSheetHead('公司財務健檢表', '金額單位：萬元');
+      STEPS.forEach(function(st, i){
+        var rows = '';
+        st.fields.forEach(function(f){
+          rows += '<tr><td>' + LBEsc(f.q) + (f.optional ? '（選填）' : '') + '</td><td style="width:15%">'
+            + (d[f.id] === null ? '<span class="blank" style="min-width:70px"></span>' : LBEsc(d[f.id].toLocaleString('zh-TW')))
+            + '</td><td>' + LBEsc(f.meaning) + '</td><td>' + LBEsc(f.where) + '</td></tr>';
+        });
+        h += '<h2>STEP' + (i + 1) + '　' + st.title + '</h2><table><thead><tr><th>項目</th><th>填寫值（萬元）</th><th>資料意義</th><th>資料可從這裡找</th></tr></thead><tbody>' + rows + '</tbody></table>';
+      });
+      var rr = '';
+      METRICS.forEach(function(m){
+        var r = evalMetric(m, d);
+        if (r.state === 'ok') rr += '<tr><td>' + LBEsc(m.name) + '</td><td>' + LBEsc(r.text) + '</td><td>' + LABEL[r.level] + '</td><td>' + LBEsc(r.say) + '</td><td>' + LBEsc(m.formula) + '</td></tr>';
+      });
+      h += '<h2>健檢結果</h2>' + (rr
+        ? '<table><thead><tr><th>指標</th><th>數值</th><th>評等</th><th>說明</th><th>計算方式</th></tr></thead><tbody>' + rr + '</tbody></table>'
+        : '<div class="meta">尚未填寫足夠的數字，無法計算。可先列印空白表，與會計師一起填寫。</div>');
+      h += '<p class="foot">評等門檻為一般財務分析的參考值，不是土地銀行的授信標準，也不代表核貸與否。</p>';
+      LBPrint(h);
+    });
+
+    refresh();
+  })();
+
+  // ===== 資金規劃試算 =====
+  (function(){
+    var COMMON = [
+      {id:'R', label:'平均每月營收', unit:'萬元', req:true,
+       meaning:'平均每個月賣出的金額。',
+       where:'損益表「營業收入」除以 12，或最近 3～6 個月的平均。'},
+      {id:'C', label:'每月付現營業成本', unit:'萬元', req:true,
+       meaning:'每月實際付出現金的營運支出：進貨、原料、薪資、租金、水電等，不含折舊與貸款本息。',
+       where:'損益表「營業成本」加「營業費用」，扣掉折舊與利息後除以 12。'},
+      {id:'oldPay', label:'目前每月借款本息支出', unit:'萬元', req:false, ph:'沒有請填 0',
+       meaning:'已經在還的貸款，每月合計要付多少。',
+       where:'現有貸款的繳款通知或對帳單。'},
+      {id:'v', label:'營收下滑時，成本會跟著減少的比例', unit:'%', req:false, ph:'預設 70',
+       meaning:'營收變少時，進貨、原料等會跟著減少；租金、正職薪資不會。比例越高，代表成本越有彈性。',
+       where:'沒有概念時，用預設 70% 即可。'}
+    ];
+    var LOAN = [
+      {id:'rate', label:'預期借款年利率', unit:'%', req:true, ph:'例如 2.5',
+       meaning:'預計向銀行借款的年利率，用來估算每月還款額。',
+       where:'先填大約數字，實際利率以銀行核定為準。'},
+      {id:'years', label:'預計借款年數', unit:'年', req:true, ph:'例如 5',
+       meaning:'希望分幾年還清，以本息平均攤還估算。',
+       where:'週轉金通常較短，設備與廠房可以較長。'},
+      {id:'loanIn', label:'預計申貸金額', unit:'萬元', req:false, ph:'不填則依缺口估算',
+       meaning:'想借多少。不填的話，系統依下方算出的資金缺口估算。',
+       where:'您與銀行討論後的金額。'}
+    ];
+    var COMMON_SAMPLE = {R:800, C:700, oldPay:10, v:70, rate:2.5, years:3};
+
+    var MODELS = {
+      working: {
+        title:'營運週轉金', hasInc:false,
+        fields:[
+          {id:'ar', label:'應收帳款天數', unit:'天', req:true, meaning:'從出貨到收到款，平均要等幾天。', where:'應收帳款餘額 ÷ 年營收 × 365。'},
+          {id:'inv', label:'存貨天數', unit:'天', req:true, meaning:'進貨後到賣出去，平均放幾天。', where:'存貨餘額 ÷ 年營業成本 × 365。'},
+          {id:'ap', label:'應付帳款天數', unit:'天', req:true, meaning:'向供應商進貨後，平均幾天才付款。', where:'應付帳款餘額 ÷ 年進貨（或營業成本）× 365。'},
+          {id:'cash', label:'目前可動用現金', unit:'萬元', req:true, meaning:'帳上可以隨時動用的現金與存款，要先留下安全水位。', where:'資產負債表「現金及約當現金」，或存款對帳單。'}
+        ],
+        sample:{R:800, C:700, ar:60, inv:30, ap:30, cash:300},
+        calc:function(d){
+          var need = d.R * d.ar / 30 + d.C * d.inv / 30 - d.C * d.ap / 30;
+          if (need < 0) need = 0;
+          var gap = Math.max(0, need - d.cash);
+          return {need:need, own:d.cash, gap:gap, suggest:ceil10(gap), inc:{r:0, c:0}, notes:[
+            '資金需求 = 帳款與存貨占用的資金：月營收 × 應收天數 ÷ 30 + 月成本 × 存貨天數 ÷ 30 − 月成本 × 應付天數 ÷ 30。']};
+        },
+        progs:['一般貸款信用保證', '購料週轉融資信用保證', '中小微企業多元發展專案貸款', '批次信用保證']
+      },
+      equip: {
+        title:'廠房與設備', hasInc:true,
+        fields:[
+          {id:'budget', label:'投資總預算', unit:'萬元', req:true, meaning:'廠房、機器設備、安裝與必要整修的總金額。', where:'報價單、估價單、工程預算。'},
+          {id:'own', label:'自有資金', unit:'萬元', req:true, meaning:'準備自己出的錢。', where:'可動用現金或股東增資。'},
+          {id:'addR', label:'投產後每月新增營收', unit:'萬元', req:true, meaning:'投資完成後，預計每個月多賣的金額。', where:'已有的訂單、產能提升的估算。'},
+          {id:'addC', label:'投產後每月新增付現成本', unit:'萬元', req:true, meaning:'為了多賣這些，每月多付出的原料、人力、水電等現金支出。', where:'依產能與成本結構估算。'}
+        ],
+        sample:{R:800, C:650, v:70, rate:2.5, years:7, budget:1500, own:300, addR:200, addC:110},
+        calc:function(d){
+          var gap = Math.max(0, d.budget - d.own), cap = d.budget * 0.8;
+          var notes = ['資本性支出的貸款，一般以不超過計畫經費 8 成為原則（例如多元發展專案貸款的要點）。'];
+          if (gap > cap + 0.05) notes.push('自有資金低於 2 成：缺口超過 8 成上限，約有 ' + n1(gap - cap) + ' 萬元需要另外補足。');
+          return {need:d.budget, own:d.own, gap:gap, suggest:ceil10(Math.min(gap, cap)), inc:{r:d.addR, c:d.addC}, notes:notes};
+        },
+        progs:['中小微企業多元發展專案貸款', '中小企業加速投資貸款信用保證', '一般貸款信用保證', '國家發展優惠保證措施']
+      },
+      expand: {
+        title:'展店與擴張', hasInc:true,
+        fields:[
+          {id:'stores', label:'新增店數', unit:'家', req:true, meaning:'這一波預計新開幾家。', where:'展店計畫。'},
+          {id:'perStore', label:'單店初期投資', unit:'萬元', req:true, meaning:'每家店的裝修、設備、押金與保證金。', where:'裝修報價、租約押金、設備報價。'},
+          {id:'ramp', label:'養店月數', unit:'月', req:true, meaning:'新店從開幕到損益兩平，大約要幾個月。', where:'既有門市或同業的開店經驗。'},
+          {id:'rampGap', label:'養店期每店每月現金缺口', unit:'萬元', req:true, meaning:'新店初期營收不夠付租金與人事，每月差多少。', where:'既有門市開幕前幾個月的帳。'},
+          {id:'matR', label:'成熟後每店月營收', unit:'萬元', req:true, meaning:'新店穩定後，平均每月的營業收入。', where:'既有門市成熟期的月營收。'},
+          {id:'matC', label:'成熟後每店月付現成本', unit:'萬元', req:true, meaning:'新店穩定後，每月實際付出的成本，含租金與人事。', where:'既有門市成熟期的月成本。'},
+          {id:'own', label:'自有資金', unit:'萬元', req:true, meaning:'準備自己出的錢。', where:'可動用現金或股東增資。'}
+        ],
+        sample:{R:800, C:650, v:70, rate:2.5, years:5, stores:2, perStore:250, ramp:6, rampGap:8, matR:120, matC:80, own:200},
+        calc:function(d){
+          var need = d.stores * (d.perStore + d.ramp * d.rampGap);
+          var gap = Math.max(0, need - d.own);
+          return {need:need, own:d.own, gap:gap, suggest:ceil10(gap), inc:{r:d.stores * d.matR, c:d.stores * d.matC}, notes:[
+            '資金需求 = 店數 ×（單店初期投資 + 養店月數 × 每月現金缺口），把養店期的預備金一起算進去。']};
+        },
+        progs:['一般貸款信用保證', '中小微企業多元發展專案貸款', '青年創業及啟動金貸款', '企業小頭家貸款信用保證']
+      },
+      overseas: {
+        title:'海外投資', hasInc:true,
+        fields:[
+          {id:'invest', label:'海外投資總額', unit:'萬元', req:true, meaning:'設立當地公司、廠房、設備與據點的總金額，請換算成新臺幣。', where:'投資計畫書、當地報價與匯率換算。'},
+          {id:'prep', label:'籌備期月數', unit:'月', req:true, meaning:'從設立到開始有營收，大約要幾個月。', where:'投資計畫的時程。'},
+          {id:'prepCost', label:'籌備期每月費用', unit:'萬元', req:true, meaning:'籌備期每月的人事、租金、顧問與差旅等支出。', where:'投資計畫的預算。'},
+          {id:'own', label:'自有資金', unit:'萬元', req:true, meaning:'準備自己出的錢。', where:'可動用現金或股東增資。'},
+          {id:'addR', label:'投產後每月新增營收', unit:'萬元', req:true, meaning:'海外據點穩定後，每月預計帶來的營收，換算成新臺幣。', where:'海外訂單、市場評估。'},
+          {id:'addC', label:'投產後每月新增付現成本', unit:'萬元', req:true, meaning:'海外據點每月實際付出的成本，換算成新臺幣。', where:'海外據點的預算。'},
+          {id:'fx', label:'匯率不利幅度', unit:'%', req:false, ph:'預設 5',
+           meaning:'海外收入換回新臺幣時，因匯率變動而減少的比例，用來檢視匯率風險。', where:'沒有概念時，用預設 5% 即可。'}
+        ],
+        sample:{R:800, C:650, v:70, rate:2.5, years:7, invest:2000, prep:6, prepCost:30, own:600, addR:300, addC:200, fx:5},
+        calc:function(d){
+          var need = d.invest + d.prep * d.prepCost;
+          var gap = Math.max(0, need - d.own);
+          return {need:need, own:d.own, gap:gap, suggest:ceil10(gap), inc:{r:d.addR, c:d.addC}, notes:[
+            '籌備期 ' + d.prep + ' 個月沒有海外營收，籌備期費用 ' + n1(d.prep * d.prepCost) + ' 萬元已計入資金需求。',
+            '海外投資還要留意當地法規、稅務與匯率；外銷型企業可一併了解外銷貸款與避險額度類保證。']};
+        },
+        progs:['協助中小企業赴新南向國家、有邦交國家投資融資信用保證', '外銷貸款優惠保證加碼信用保證', '外銷貸款信用保證', '協助企業取得避險額度信用保證措施']
+      }
+    };
+
+    function n1(x){ return (Math.round(x * 10) / 10).toLocaleString('zh-TW'); }
+    function ceil10(x){ return x <= 0 ? 0 : Math.ceil(x / 10) * 10; }
+    function pmt(P, rate, years){
+      var n = years * 12, r = rate / 100 / 12;
+      if (P <= 0) return 0;
+      if (r === 0) return P / n;
+      return P * r / (1 - Math.pow(1 + r, -n));
+    }
+    function lvl(c){ return c >= 1.5 ? 'good' : c >= 1 ? 'watch' : 'warn'; }
+    var LV = {good:'良好', watch:'留意', warn:'需改善'};
+
+    var modal = document.getElementById('planModal');
+    var body = document.getElementById('pfBody');
+    var msg = document.getElementById('pfMsg');
+    var titleEl = document.getElementById('pfTitle');
+    var cur = null, lastFocus = null;
+
+    function fieldHTML(model, f){
+      var id = 'pf-' + model + '-' + f.id;
+      return '<div class="pf"><label for="' + id + '">' + f.label + ' <span>（' + f.unit + (f.req ? '' : '，選填') + '）</span></label>'
+        + '<div class="unit"><input type="number" step="any" inputmode="decimal" id="' + id + '" placeholder="' + (f.ph || '') + '"><i>' + f.unit + '</i></div>'
+        + '<p class="pf-hint"><b>資料意義</b>　' + f.meaning + '<br><b>資料可從這裡找</b>　' + f.where + '</p></div>';
+    }
+    var html = '';
+    Object.keys(MODELS).forEach(function(k){
+      var m = MODELS[k];
+      html += '<div class="pf-panel" data-model="' + k + '" hidden>'
+        + '<div class="pf-sec"><h4>目前的經營數字</h4><div class="pf-grid">' + COMMON.map(function(f){ return fieldHTML(k, f); }).join('') + '</div></div>'
+        + '<div class="pf-sec"><h4>這個用途的資金需求</h4><div class="pf-grid">' + m.fields.map(function(f){ return fieldHTML(k, f); }).join('') + '</div></div>'
+        + '<div class="pf-sec"><h4>借款條件</h4><div class="pf-grid">' + LOAN.map(function(f){ return fieldHTML(k, f); }).join('') + '</div></div>'
+        + '<div class="pf-result" id="pf-res-' + k + '" hidden></div></div>';
+    });
+    body.innerHTML = html;
+    var panels = Array.prototype.slice.call(body.querySelectorAll('.pf-panel'));
+
+    function el(model, id){ return document.getElementById('pf-' + model + '-' + id); }
+    function num(model, id){
+      var t = el(model, id).value.trim();
+      if (t === '') return null;
+      var n = parseFloat(t);
+      return isNaN(n) ? null : n;
+    }
+
+    function run(model){
+      var m = MODELS[model], d = {}, all = COMMON.concat(m.fields, LOAN);
+      all.forEach(function(f){ d[f.id] = num(model, f.id); });
+      var miss = all.filter(function(f){ return f.req && d[f.id] === null; });
+      if (miss.length) return {err:'還有必填欄位沒填：' + miss.slice(0, 3).map(function(f){ return f.label; }).join('、') + (miss.length > 3 ? ' 等 ' + miss.length + ' 項' : '') + '。'};
+      var neg = all.filter(function(f){ return d[f.id] !== null && d[f.id] < 0; });
+      if (neg.length) return {err:'「' + neg[0].label + '」不能是負數。'};
+      if (d.R <= 0) return {err:'平均每月營收需要大於 0。'};
+      if (d.years <= 0) return {err:'預計借款年數需要大於 0。'};
+      if (d.v !== null && d.v > 100) return {err:'成本隨營收減少的比例不能超過 100%。'};
+      if (model === 'expand' && d.stores <= 0) return {err:'新增店數需要大於 0。'};
+
+      var v = (d.v === null ? 70 : d.v) / 100, old = d.oldPay === null ? 0 : d.oldPay;
+      var cal = m.calc(d);
+      var loan = d.loanIn !== null ? d.loanIn : cal.suggest;
+      var pay = pmt(loan, d.rate, d.years), service = pay + old;
+      var notes = cal.notes.slice();
+      if (d.loanIn !== null) {
+        if (d.loanIn < cal.gap - 0.05) notes.push('預計申貸金額低於資金缺口，仍有約 ' + n1(cal.gap - d.loanIn) + ' 萬元需要自備或另尋資金。');
+        if (d.loanIn > cal.gap + 0.05) notes.push('預計申貸金額高於估算缺口（' + n1(cal.gap) + ' 萬元），多出的部分會增加每月還款。');
+      }
+
+      function net(drop, fx, inc){
+        var x = d.R * (1 - drop) - d.C * (1 - v * drop);
+        if (inc) x += cal.inc.r * (1 - drop) * (1 - fx) - cal.inc.c * (1 - v * drop);
+        return x;
+      }
+      var defs = m.hasInc
+        ? [['基準：含新投資的新增營收', 0, 0, true], ['保守：新投資尚未貢獻營收', 0, 0, false], ['營收下滑 10%', 0.1, 0, true], ['營收下滑 20%', 0.2, 0, true]]
+        : [['基準', 0, 0, true], ['營收下滑 10%', 0.1, 0, true], ['營收下滑 20%', 0.2, 0, true]];
+      if (model === 'overseas') {
+        var fx = (d.fx === null ? 5 : d.fx) / 100;
+        if (fx > 0) defs.push(['海外收入因匯率不利減少 ' + Math.round(fx * 1000) / 10 + '%', 0, fx, true]);
+      }
+      var rows = defs.map(function(x){
+        var nt = net(x[1], x[2], x[3]);
+        var cov = service > 0 ? nt / service : Infinity;
+        return {label:x[0], net:nt, service:service, cov:cov, left:nt - service, lv:cov === Infinity ? 'good' : lvl(cov), core:x[0].indexOf('20%') < 0};
+      });
+      if (model === 'expand') {
+        var rn = d.R - d.C - d.stores * d.rampGap - service;
+        notes.push('養店期（前 ' + d.ramp + ' 個月）：每月淨現金流約 ' + n1(rn) + ' 萬元（已扣新增還款與養店缺口）。' + (rn < 0 ? '現金流為負，養店期要有足夠預備金。' : ''));
+      }
+      notes.push('月還款額依本息平均攤還估算，實際以銀行核定的利率與條件為準。');
+      notes.push('覆蓋倍數 = 每月淨現金流 ÷ 每月還款合計（含既有借款）。1.5 倍以上較有緩衝，低於 1 倍代表現金流不夠還款。');
+
+      var worst = 'good';
+      rows.forEach(function(r){
+        if (!r.core) return;
+        if (r.lv === 'warn') worst = 'warn';
+        else if (r.lv === 'watch' && worst !== 'warn') worst = 'watch';
+      });
+      var verdict = {good:['還款負擔在可承受範圍', '多數情境下，每月現金流足以支付新增借款與既有借款。'],
+                     watch:['基準可還款，但緩衝有限', '營收下滑或新投資進度落後時，現金流會變緊，建議保留預備金，或調整金額與年限。'],
+                     warn:['還款壓力偏大', '部分情境下，每月現金流不足以支付還款，建議降低申貸金額、拉長年限或提高自有資金。']}[worst];
+
+      var tiles = [['資金需求', n1(cal.need) + ' 萬元'], ['可動用資金', n1(cal.own) + ' 萬元'], ['資金缺口', n1(cal.gap) + ' 萬元', 1],
+                   ['預計申貸金額', n1(loan) + ' 萬元', 1], ['每月還款額', n1(pay) + ' 萬元'], ['還款占月營收', (pay / d.R * 100).toFixed(1) + '%']];
+      var inputs = [];
+      all.forEach(function(f){ if (d[f.id] !== null) inputs.push([f.label, n1(d[f.id]) + ' ' + f.unit]); });
+
+      var covText = function(c){ return c === Infinity ? '無需還款' : c.toFixed(2) + ' 倍'; };
+      var h = '<div class="ck-score"><b>' + verdict[0] + '</b><p>' + verdict[1] + '</p></div><div class="tiles">';
+      tiles.forEach(function(t){ h += '<div class="tile' + (t[2] ? ' hl' : '') + '"><small>' + t[0] + '</small><b>' + t[1] + '</b></div>'; });
+      h += '</div><h4 class="pf-h">情境檢視：每月還款撐得住嗎？</h4><div class="scroll-x"><table class="scen"><thead><tr><th>情境</th><th>每月淨現金流</th><th>每月還款合計</th><th>覆蓋倍數</th><th>每月剩餘</th><th>評等</th></tr></thead><tbody>';
+      rows.forEach(function(r){
+        h += '<tr><td>' + r.label + '</td><td>' + n1(r.net) + ' 萬元</td><td>' + n1(r.service) + ' 萬元</td><td>' + covText(r.cov) + '</td><td>' + n1(r.left) + ' 萬元</td><td><span class="b-' + r.lv + '">' + LV[r.lv] + '</span></td></tr>';
+      });
+      h += '</tbody></table></div><h4 class="pf-h">重點提醒</h4><ul class="pf-notes">' + notes.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>';
+      h += '<h4 class="pf-h">可搭配的信保基金專案</h4><div class="pf-prog">' + m.progs.map(function(n){ return '<a href="#smeg" data-prog="' + n + '">' + n + '</a>'; }).join('') + '</div>';
+      h += '<div class="res-actions"><button type="button" class="btn btn-primary" data-act="download">下載試算摘要</button><button type="button" class="btn btn-ghost" data-act="print">列印試算摘要</button><a class="btn btn-ghost" href="#contact" data-act="discuss">找專人討論</a></div>'
+        + '<p class="pf-hint" style="margin-top:10px">調整上方數字後，再按「更新試算結果」即可重新計算。本試算不會自動傳送任何資料。</p>';
+
+      var now = new Date();
+      var ymd = now.getFullYear() + '/' + (now.getMonth() + 1) + '/' + now.getDate();
+      var L = ['土地銀行中小企業融資專區（示範網站）', '資金規劃試算摘要｜' + m.title, '試算日期：' + ymd, '', '【輸入數字】（金額單位：萬元）'];
+      inputs.forEach(function(x){ L.push('・' + x[0] + '：' + x[1]); });
+      L.push('', '【試算結果】', '評語：' + verdict[0] + '。' + verdict[1]);
+      tiles.forEach(function(t){ L.push('・' + t[0] + '：' + t[1]); });
+      L.push('', '【情境檢視】');
+      rows.forEach(function(r){ L.push('・' + r.label + '：每月淨現金流 ' + n1(r.net) + ' 萬元，還款合計 ' + n1(r.service) + ' 萬元，覆蓋倍數 ' + covText(r.cov) + '（' + LV[r.lv] + '）'); });
+      L.push('', '【重點提醒】');
+      notes.forEach(function(x){ L.push('・' + x); });
+      L.push('', '【可搭配的信保基金專案】');
+      m.progs.forEach(function(n){ L.push('・' + n); });
+      L.push('', '※ 本摘要為概略試算，不是授信核准，也不代表核貸與否。實際條件以銀行審核與信保基金公告為準。');
+
+      var ph = LBSheetHead('資金規劃試算摘要｜' + m.title, '金額單位：萬元');
+      ph += '<h2>輸入數字</h2><table><tbody>' + inputs.map(function(x){ return '<tr><td style="width:60%">' + LBEsc(x[0]) + '</td><td>' + LBEsc(x[1]) + '</td></tr>'; }).join('') + '</tbody></table>';
+      ph += '<h2>試算結果：' + LBEsc(verdict[0]) + '</h2><div class="meta">' + LBEsc(verdict[1]) + '</div><table><tbody>' + tiles.map(function(t){ return '<tr><td style="width:60%">' + t[0] + '</td><td>' + LBEsc(t[1]) + '</td></tr>'; }).join('') + '</tbody></table>';
+      ph += '<h2>情境檢視</h2><table><thead><tr><th>情境</th><th>每月淨現金流</th><th>還款合計</th><th>覆蓋倍數</th><th>每月剩餘</th><th>評等</th></tr></thead><tbody>'
+        + rows.map(function(r){ return '<tr><td>' + LBEsc(r.label) + '</td><td>' + n1(r.net) + '</td><td>' + n1(r.service) + '</td><td>' + covText(r.cov) + '</td><td>' + n1(r.left) + '</td><td>' + LV[r.lv] + '</td></tr>'; }).join('') + '</tbody></table>';
+      ph += '<h2>重點提醒</h2><ul>' + notes.map(function(x){ return '<li>' + LBEsc(x) + '</li>'; }).join('') + '</ul>';
+      ph += '<h2>可搭配的信保基金專案</h2><ul>' + m.progs.map(function(n){ return '<li>' + LBEsc(n) + '</li>'; }).join('') + '</ul>';
+      ph += '<p class="foot">本摘要為概略試算，不是授信核准，也不代表核貸與否。實際條件以銀行審核與信保基金公告為準。</p>';
+
+      return {html:h, r:{title:m.title, text:L.join('\r\n'), print:ph, ymd:ymd.replace(/\//g, '')}};
+    }
+
+    function setLast(r){
+      window.LBLast = r;
+      var now = new Date();
+      var hm = now.getHours() + ':' + ('0' + now.getMinutes()).slice(-2);
+      var s = document.getElementById('planState');
+      if (s) s.textContent = '已完成試算：' + r.title + '（' + hm + '）。可下載或列印摘要，再帶去留言。';
+      ['cDownload', 'cPrintPlan'].forEach(function(id){ var b = document.getElementById(id); if (b) b.disabled = false; });
+    }
+    window.LBPlanDownload = function(){
+      var r = window.LBLast;
+      if (!r) return;
+      var blob = new Blob(['\uFEFF' + r.text], {type:'text/plain;charset=utf-8'});
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = '資金規劃試算摘要_' + r.title + '_' + r.ymd + '.txt';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 600);
+    };
+    window.LBPlanPrint = function(){ if (window.LBLast) LBPrint(window.LBLast.print); };
+
+    function openPlan(model){
+      lastFocus = document.activeElement;
+      cur = model;
+      titleEl.textContent = '資金規劃試算｜' + MODELS[model].title;
+      panels.forEach(function(p){ p.hidden = p.getAttribute('data-model') !== model; });
+      msg.style.display = 'none';
+      modal.hidden = false;
+      document.body.classList.add('modal-open');
+      body.scrollTop = 0;
+      var first = el(model, 'R');
+      if (first) first.focus();
+    }
+    function closePlan(){
+      modal.hidden = true;
+      if (!document.querySelector('.modal:not([hidden])')) document.body.classList.remove('modal-open');
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    window.LBClosePlan = function(){ if (!modal.hidden) closePlan(); };
+
+    document.addEventListener('click', function(e){
+      var t = e.target.closest('[data-plan]');
+      if (!t) return;
+      e.preventDefault();
+      openPlan(t.getAttribute('data-plan'));
+    });
+    document.getElementById('pfClose').addEventListener('click', closePlan);
+    modal.addEventListener('mousedown', function(e){ if (e.target === modal) closePlan(); });
+    document.addEventListener('keydown', function(e){
+      if (modal.hidden) return;
+      if (e.key === 'Escape') { closePlan(); return; }
+      if (e.key === 'Tab') {
+        var f = Array.prototype.slice.call(modal.querySelectorAll('button,input,a[href]')).filter(function(x){
+          return x.offsetParent !== null && !x.disabled;
+        });
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    document.getElementById('pfUpdate').addEventListener('click', function(){
+      var res = run(cur);
+      if (res.err) { msg.textContent = res.err; msg.style.display = 'block'; return; }
+      msg.style.display = 'none';
+      var box = document.getElementById('pf-res-' + cur);
+      box.innerHTML = res.html;
+      box.hidden = false;
+      setLast(res.r);
+      box.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+    document.getElementById('pfSample').addEventListener('click', function(){
+      var s = {};
+      Object.keys(COMMON_SAMPLE).forEach(function(k){ s[k] = COMMON_SAMPLE[k]; });
+      Object.keys(MODELS[cur].sample).forEach(function(k){ s[k] = MODELS[cur].sample[k]; });
+      Object.keys(s).forEach(function(k){ var x = el(cur, k); if (x) x.value = s[k]; });
+      msg.textContent = '已帶入範例數字，請按「更新試算結果」。';
+      msg.style.display = 'block';
+      msg.style.background = '#E3EEE8';
+      msg.style.color = '#0B3B2C';
+    });
+    document.getElementById('pfClear').addEventListener('click', function(){
+      COMMON.concat(MODELS[cur].fields, LOAN).forEach(function(f){ el(cur, f.id).value = ''; });
+      var box = document.getElementById('pf-res-' + cur);
+      box.hidden = true;
+      box.innerHTML = '';
+      msg.style.display = 'none';
+    });
+    body.addEventListener('click', function(e){
+      var b = e.target.closest('[data-act]');
+      if (!b) return;
+      var a = b.getAttribute('data-act');
+      if (a === 'download') window.LBPlanDownload();
+      else if (a === 'print') window.LBPlanPrint();
+      else if (a === 'discuss') closePlan();
+    });
+    // 錯誤訊息樣式復原（範例提示用過綠色）
+    document.getElementById('pfUpdate').addEventListener('mousedown', function(){ msg.style.background = ''; msg.style.color = ''; });
+  })();
+
+  // ===== 聯絡區：準備清單按鈕 =====
+  (function(){
+    function on(id, fn){ var b = document.getElementById(id); if (b) b.addEventListener('click', fn); }
+    on('cDownload', function(){ window.LBPlanDownload && window.LBPlanDownload(); });
+    on('cPrintPlan', function(){ window.LBPlanPrint && window.LBPlanPrint(); });
+    on('cPrintCk', function(){ document.getElementById('ckPrint').click(); });
+    on('cPrintDocs', function(){ document.getElementById('docPrint').click(); });
+  })();
+</script>
+</body>
+</html>
